@@ -1,0 +1,33 @@
+server:
+   port: 7000
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+eureka:
+   instance:
+      leaseRenewalIntervalInSeconds: 30
+      leaseExpirationDurationInSeconds: 90
+      preferIpAddress: false
+      instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+      hostname: ${spring.cloud.client.ipAddress}
+   client:
+      registerWithEureka: true
+      fetchRegistry: false
+      serviceUrl:
+         defaultZone: http://localhost:${server.port}/eureka
+spring:
+   cloud:
+      config:
+         server:
+            git:
+               uri: https://gitee.com/renlm/config-repo
+               forcePull: true
+               defaultLabel: master
+   rabbitmq:
+      virtual-host: /renlm
+      host: renlm.cn
+      port: 30672
+      username: renlm
+      password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
