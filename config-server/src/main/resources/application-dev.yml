@@ -6,20 +6,18 @@ management:
          exposure:
             include: "*"
 eureka:
-   user: eurekaServer
-   password: Pwd123654
    instance:
       preferIpAddress: true
-      instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+      instanceId: ${spring.cloud.client.ip-address}:${server.port}
+      hostname: ${spring.cloud.client.ip-address}
    client:
       serviceUrl:
-         defaultZone: http://localhost:7001/eureka
-
+         defaultZone: http://eureka:123654@localhost:7001/eureka
 spring:
    security:
       user:
-         name: configServer
-         password: 123654789
+         name: config
+         password: 123654
    rabbitmq:
       virtual-host: /renlm
       host: rabbitmq.renlm.cn
