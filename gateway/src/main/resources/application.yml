@@ -1,15 +1,5 @@
-server:
-   port: 9000
 spring:
    application:
-      name: config-server
+      name: gateway
    profiles:
-      active: native
-   cloud:
-      config:
-         server:
-            native:
-               searchLocations: classpath:/config
-            git:
-               uri: https://gitee.com/renlm/config-repo
-               force-pull: true
+      active: dev
