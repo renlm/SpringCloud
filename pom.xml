@@ -21,6 +21,7 @@
 	<modules>
 		<module>config-server</module>
 		<module>gateway</module>
+		<module>netflix-eureka-server</module>
 	</modules>
 
 	<dependencies>
