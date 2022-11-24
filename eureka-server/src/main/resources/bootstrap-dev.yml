@@ -1,6 +1,10 @@
 eureka:
    instance:
       hostname: localhost
+      preferIpAddress: true
+   server:
+      waitTimeInMsWhenSyncEmpty: 0
+      enableSelfPreservation: false
    client:
       registerWithEureka: false
       fetchRegistry: false
