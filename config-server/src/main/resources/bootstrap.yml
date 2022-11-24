@@ -5,9 +5,6 @@ spring:
       name: config-server
    profiles:
       active: dev
-   cloud:
-      config:
-         name: security,rabbitmq
 encrypt:
    failOnError: true
    keyStore:
