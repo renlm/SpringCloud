@@ -5,13 +5,16 @@ spring:
       name: config-server
    profiles:
       active: dev
+   cloud:
+      config:
+         name: security,rabbitmq
 encrypt:
-   failOnError: false
+   failOnError: true
    keyStore:
-      location: classpath:keystore.jks
-      password: password
-      alias: encryptKey
-      secret: secretName
+      location: classpath:keyStore.jks
+      password: 123654
+      alias: keyStore
+      secret: 123654
 management:
    endpoints:
       web:

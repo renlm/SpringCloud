@@ -1,21 +1,10 @@
 spring:
-   security:
-      user:
-         name: ${SECURITY_NAME:springCloud}
-         password: ${SECURITY_PASSWORD:123654}
-   rabbitmq:
-      virtual-host: /renlm
-      host: rabbitmq.renlm.cn
-      port: 30672
-      username: renlm
-      password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
    cloud:
       config:
          server:
             git:
                uri: https://gitee.com/renlm/config-repo
                forcePull: true
-               defaultLabel: master
                searchPaths: '{profile}'
 eureka:
    instance:
