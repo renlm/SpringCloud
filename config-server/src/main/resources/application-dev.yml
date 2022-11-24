@@ -4,19 +4,14 @@ management:
    endpoints:
       web:
          exposure:
-            include: '*'
+            include: "*"
 eureka:
    instance:
-      leaseRenewalIntervalInSeconds: 30
-      leaseExpirationDurationInSeconds: 90
-      preferIpAddress: false
-      instanceId: ${spring.cloud.client.ipAddress}:${server.port}
-      hostname: ${spring.cloud.client.ipAddress}
+      preferIpAddress: true
+      instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
    client:
-      registerWithEureka: true
-      fetchRegistry: false
       serviceUrl:
-         defaultZone: http://localhost:${server.port}/eureka
+         defaultZone: http://localhost:7002/eureka
 spring:
    cloud:
       config:
@@ -27,7 +22,7 @@ spring:
                defaultLabel: master
    rabbitmq:
       virtual-host: /renlm
-      host: renlm.cn
+      host: rabbitmq.renlm.cn
       port: 30672
       username: renlm
       password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
