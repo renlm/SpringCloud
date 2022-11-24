@@ -1,7 +1,7 @@
 server:
-   port: 7002
+   port: 7001
 spring:
    application:
-      name: netflix-eureka-server
+      name: eureka-server
    profiles:
       active: dev
