@@ -1,0 +1,4 @@
+spring:
+   cloud:
+      config:
+         uri: https://config-server.renlm.cn
