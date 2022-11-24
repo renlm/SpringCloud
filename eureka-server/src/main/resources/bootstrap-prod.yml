@@ -1,8 +1,19 @@
+SECURITY_NAME: eureka
+SECURITY_PASSWORD: 123654
+EUREKA_INSTANCE_HOSTNAME: localhost
+EUREKA_SERVER: http://${SECURITY_NAME}:${SECURITY_PASSWORD}@${EUREKA_INSTANCE_HOSTNAME}:${server.port}/eureka
+spring:
+   security:
+      user:
+         name: ${SECURITY_NAME}
+         password: ${SECURITY_PASSWORD}
 eureka:
    instance:
-      hostname: localhost
+      hostname: ${EUREKA_INSTANCE_HOSTNAME}
+      instanceId: ${EUREKA_INSTANCE_HOSTNAME}
+      preferIpAddress: false
    client:
-      fetch-registry: false
-      register-with-eureka: true
-      service-url:
-         defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      registerWithEureka: true
+      fetchRegistry: false
+      serviceUrl:
+         defaultZone: ${EUREKA_SERVER}

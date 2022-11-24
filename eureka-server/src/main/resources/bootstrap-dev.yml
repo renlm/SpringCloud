@@ -1,12 +1,12 @@
 SECURITY_NAME: eureka
-SECURITY_PAWD: 123654
-EUREKA_SERVER: http://${SECURITY_NAME}:${SECURITY_PAWD}@${EUREKA_INSTANCE_HOSTNAME}:${server.port}/eureka
+SECURITY_PASSWORD: 123654
 EUREKA_INSTANCE_HOSTNAME: localhost
+EUREKA_SERVER: http://${SECURITY_NAME}:${SECURITY_PASSWORD}@${EUREKA_INSTANCE_HOSTNAME}:${server.port}/eureka
 spring:
    security:
       user:
          name: ${SECURITY_NAME}
-         password: ${SECURITY_PAWD}
+         password: ${SECURITY_PASSWORD}
 eureka:
    instance:
       hostname: ${EUREKA_INSTANCE_HOSTNAME}
