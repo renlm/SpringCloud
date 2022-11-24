@@ -1,8 +1,8 @@
 spring:
    security:
       user:
-         name: ${SECURITY_NAME:eurekaServer}
-         password: ${SECURITY_PASSWORD:Kdi5w8d67m7lKd7y4f8Isf3d84Yu5n5w}
+         name: ${SECURITY_NAME:eureka}
+         password: ${SECURITY_PASSWORD:123654}
 eureka:
    instance:
       preferIpAddress: false
