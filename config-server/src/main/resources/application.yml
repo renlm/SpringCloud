@@ -4,12 +4,16 @@ spring:
    application:
       name: config-server
    profiles:
-      active: native
+      active: gitee
+   security:
+      basic:
+         enabled: true
+      user:
+         name: config
+         password: Kdi^dfsfy36^m7lKd5w^_874I4Yu5n5w
    cloud:
       config:
          server:
-            native:
-               searchLocations: classpath:/config
             git:
                uri: https://gitee.com/renlm/config-repo
                force-pull: true

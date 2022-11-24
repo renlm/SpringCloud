@@ -1,4 +1,10 @@
 spring:
    cloud:
       config:
-         uri: https://config-server.renlm.cn
+         label: ${spring.profiles.active}
+         fail-fast: true
+         username: config
+         password: Kdi^dfsfy36^m7lKd5w^_874I4Yu5n5w
+         discovery:
+            enabled: true
+            service-id: config-server
