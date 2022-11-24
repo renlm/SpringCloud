@@ -1,16 +1,28 @@
 server:
-   port: 9000
+   port: 7000
+management:
+   endpoints:
+      web:
+         basePath: /monitor
+         exposure:
+            include: '*'
+   endpoint:
+      env:
+         post:
+            enabled: true
+eureka:
+   instance:
+      leaseRenewalIntervalInSeconds: 30
+      leaseExpirationDurationInSeconds: 90
+      preferIpAddress: false
+      instanceId: ${EUREKA_INSTANCE_HOSTNAME:${spring.cloud.client.ipAddress}}:${server.port}
+      hostname: ${EUREKA_INSTANCE_HOSTNAME:${spring.cloud.client.ipAddress}}
+   client:
+      registerWithEureka: ${REGISTER_WITH_EUREKA:true}
+      fetchRegistry: ${FETCH_REGISTRY:false}
+      serviceUrl:
+         defaultZone: ${EUREKA_SERVER:http://localhost:${server.port}/eureka}
 spring:
-   application:
-      name: config-server
-   profiles:
-      active: master
-   security:
-      basic:
-         enabled: true
-      user:
-         name: configServer
-         password: Kdi^dfsfy36^m7lKd5w^_874I4Yu5n5w
    cloud:
       config:
          server:
@@ -18,3 +30,9 @@ spring:
                uri: https://gitee.com/renlm/config-repo
                forcePull: true
                defaultLabel: master
+   rabbitmq:
+      virtual-host: /renlm
+      host: renlm.cn
+      port: 30672
+      username: renlm
+      password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs

@@ -1,0 +1,12 @@
+spring:
+   application:
+      name: config-server
+   profiles:
+      active: dev
+encrypt:
+   failOnError: false
+   keyStore:
+      location: classpath:keystore.jks
+      password: password
+      alias: encryptKey
+      secret: secretName
