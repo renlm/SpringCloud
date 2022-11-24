@@ -16,6 +16,7 @@ spring:
                uri: https://gitee.com/renlm/config-repo
                forcePull: true
                defaultLabel: master
+               searchPaths: '{profile}'
 eureka:
    instance:
       preferIpAddress: false
