@@ -6,7 +6,7 @@
 	<artifactId>gateway</artifactId>
 
 	<name>Gateway</name>
-	<description>服务网关</description>
+	<description>网关</description>
 
 	<parent>
 		<groupId>cn.renlm</groupId>

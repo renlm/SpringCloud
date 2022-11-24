@@ -6,7 +6,7 @@
 	<artifactId>config-server</artifactId>
 
 	<name>ConfigServer</name>
-	<description>服务配置中心</description>
+	<description>配置中心</description>
 
 	<parent>
 		<groupId>cn.renlm</groupId>
