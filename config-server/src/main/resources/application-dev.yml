@@ -1,22 +1,7 @@
-server:
-   port: 7000
-management:
-   endpoints:
-      web:
-         exposure:
-            include: "*"
-eureka:
-   instance:
-      preferIpAddress: true
-      instanceId: ${spring.cloud.client.ip-address}:${server.port}
-      hostname: ${spring.cloud.client.ip-address}
-   client:
-      serviceUrl:
-         defaultZone: http://eureka:123654@localhost:7001/eureka
 spring:
    security:
       user:
-         name: config
+         name: springCloud
          password: 123654
    rabbitmq:
       virtual-host: /renlm
@@ -31,3 +16,13 @@ spring:
                uri: https://gitee.com/renlm/config-repo
                forcePull: true
                defaultLabel: master
+eureka:
+   instance:
+      preferIpAddress: false
+      instanceId: ${EUREKA_INSTANCE_HOSTNAME:localhost}:${server.port}
+      hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+   client:
+      registerWithEureka: true
+      fetchRegistry: true
+      serviceUrl:
+         defaultZone: ${EUREKA_SERVER:http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/}

@@ -1,7 +1,7 @@
 spring:
    security:
       user:
-         name: ${SECURITY_NAME:eureka}
+         name: ${SECURITY_NAME:springCloud}
          password: ${SECURITY_PASSWORD:123654}
 eureka:
    instance:
