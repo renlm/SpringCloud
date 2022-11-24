@@ -2,7 +2,12 @@ eureka:
    instance:
       hostname: localhost
    client:
-      registerWithEureka: true
+      registerWithEureka: false
       fetchRegistry: false
       service-url:
          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+spring:
+   security:
+      user:
+         name: eurekaServer
+         password: 123654789

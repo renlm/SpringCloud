@@ -6,13 +6,26 @@ management:
          exposure:
             include: "*"
 eureka:
+   user: eurekaServer
+   password: Pwd123654
    instance:
       preferIpAddress: true
       instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
    client:
       serviceUrl:
          defaultZone: http://localhost:7001/eureka
+
 spring:
+   security:
+      user:
+         name: configServer
+         password: 123654789
+   rabbitmq:
+      virtual-host: /renlm
+      host: rabbitmq.renlm.cn
+      port: 30672
+      username: renlm
+      password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
    cloud:
       config:
          server:
@@ -20,9 +33,3 @@ spring:
                uri: https://gitee.com/renlm/config-repo
                forcePull: true
                defaultLabel: master
-   rabbitmq:
-      virtual-host: /renlm
-      host: rabbitmq.renlm.cn
-      port: 30672
-      username: renlm
-      password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
