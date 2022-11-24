@@ -2,6 +2,7 @@ package cn.renlm.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * 启动类
@@ -9,10 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Renlm
  *
  */
+@EnableEurekaServer
 @SpringBootApplication
-public class GatewayApplication {
+public class NetflixEurekaServerApplication {
 	public static void main(String[] args) {
-		SpringApplication springApplication = new SpringApplication(GatewayApplication.class);
+		SpringApplication springApplication = new SpringApplication(NetflixEurekaServerApplication.class);
 		springApplication.run(args);
 	}
 }

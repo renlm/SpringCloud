@@ -1,4 +1,8 @@
-spring:
-   cloud:
-      config:
-         uri: https://config-server.renlm.cn
+eureka:
+   instance:
+      hostname: localhost
+   client:
+      fetch-registry: false
+      register-with-eureka: true
+      service-url:
+         defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
