@@ -10,3 +10,6 @@ spring:
          server:
             native:
                searchLocations: classpath:/config
+            git:
+               uri: https://gitee.com/renlm/config-repo
+               force-pull: true
