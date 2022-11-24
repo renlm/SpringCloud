@@ -19,8 +19,8 @@ spring:
 eureka:
    instance:
       preferIpAddress: false
-      instanceId: localhost:7001
-      hostname: localhost
+      instanceId: ${EUREKA_INSTANCE_HOSTNAME:localhost}:${server.port}
+      hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
    client:
       registerWithEureka: true
       fetchRegistry: true
