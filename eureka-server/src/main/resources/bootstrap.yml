@@ -5,8 +5,6 @@ spring:
       name: eureka-server
    profiles:
       active: dev
-   config:
-      import: optional:configserver:${CONFIG_SERVER_URL:http://springCloud:123654@localhost:7000/}
 management:
    endpoints:
       web:
