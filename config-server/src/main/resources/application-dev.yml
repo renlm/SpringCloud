@@ -11,7 +11,7 @@ spring:
     database: 6
     clientName: config-server-dev
   rabbitmq:
-    virtual-host: /renlm
+    virtualHost: /renlm
     host: renlm.cn
     port: 30672
     username: renlm
