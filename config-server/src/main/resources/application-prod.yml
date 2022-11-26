@@ -12,7 +12,7 @@ spring:
     clientName: config-server-prod
   rabbitmq:
     virtual-host: /renlm
-    host: rabbitmq.renlm.cn
+    host: renlm.cn
     port: 30672
     username: renlm
     password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
@@ -26,10 +26,10 @@ spring:
 eureka:
   instance:
     preferIpAddress: false
-    instanceId: ${EUREKA_INSTANCE_ID}
-    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+    instanceId: ${EUREKA_INSTANCE_HOSTNAME:${spring.cloud.client.ip-address}}:${server.port}
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:${spring.cloud.client.ip-address}}
   client:
-    registerWithEureka: true
-    fetchRegistry: true
+    registerWithEureka: ${REGISTER_WITH_EUREKA:true}
+    fetchRegistry: ${FETCH_REGISTRY:true}
     serviceUrl:
       defaultZone: ${EUREKA_SERVER}

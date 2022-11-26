@@ -29,7 +29,7 @@ eureka:
     instanceId: ${EUREKA_INSTANCE_HOSTNAME:localhost}:${server.port}
     hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
   client:
-    registerWithEureka: true
-    fetchRegistry: true
+    registerWithEureka: ${REGISTER_WITH_EUREKA:true}
+    fetchRegistry: ${FETCH_REGISTRY:true}
     serviceUrl:
       defaultZone: http://springCloud:123654@localhost:7001/eureka/
