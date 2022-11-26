@@ -1,28 +1,35 @@
 spring:
-   security:
-      user:
-         name: ${SECURITY_NAME:springCloud}
-         password: ${SECURITY_PASSWORD:123654}
-   rabbitmq:
-      virtual-host: /renlm
-      host: rabbitmq.renlm.cn
-      port: 30672
-      username: renlm
-      password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
-   cloud:
-      config:
-         server:
-            git:
-               uri: https://gitee.com/renlm/config-repo
-               forcePull: true
-               searchPaths: '{profile}'
+  security:
+    user:
+      name: ${SECURITY_NAME:springCloud}
+      password: ${SECURITY_PASSWORD:123654}
+  redis:
+    host: renlm.cn
+    port: 30379
+    timeout: 6000
+    password: GR12tcd^m8Gcd^m8170^0lGR2K^rr8dh
+    database: 6
+    clientName: config-server-dev
+  rabbitmq:
+    virtual-host: /renlm
+    host: renlm.cn
+    port: 30672
+    username: renlm
+    password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/renlm/config-repo
+          forcePull: true
+          defaultLabel: master
 eureka:
-   instance:
-      preferIpAddress: false
-      instanceId: ${EUREKA_INSTANCE_HOSTNAME:localhost}:${server.port}
-      hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
-   client:
-      registerWithEureka: true
-      fetchRegistry: true
-      serviceUrl:
-         defaultZone: http://springCloud:123654@localhost:7001/eureka/
+  instance:
+    preferIpAddress: false
+    instanceId: ${EUREKA_INSTANCE_HOSTNAME:localhost}:${server.port}
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://springCloud:123654@localhost:7001/eureka/

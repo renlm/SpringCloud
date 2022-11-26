@@ -1,19 +1,19 @@
 server:
-   port: 7000
+  port: 7000
 spring:
-   application:
-      name: config-server
-   profiles:
-      active: dev
+  application:
+    name: config-server
+  profiles:
+    active: dev
 encrypt:
-   failOnError: true
-   keyStore:
-      location: classpath:keyStore.jks
-      password: 123654
-      alias: keyStore
-      secret: 123654
+  failOnError: false
+  keyStore:
+    location: classpath:keyStore.jks
+    password: 123654
+    alias: keyStore
+    secret: 123654
 management:
-   endpoints:
-      web:
-         exposure:
-            include: '*'
+  endpoints:
+    web:
+      exposure:
+        include: '*'
