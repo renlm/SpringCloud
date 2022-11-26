@@ -1,12 +1,12 @@
 server:
-   port: 7001
+  port: 7001
 spring:
-   application:
-      name: eureka-server
-   profiles:
-      active: dev
+  application:
+    name: eureka-server
+  profiles:
+    active: dev
 management:
-   endpoints:
-      web:
-         exposure:
-            include: '*'
+  endpoints:
+    web:
+      exposure:
+        include: '*'

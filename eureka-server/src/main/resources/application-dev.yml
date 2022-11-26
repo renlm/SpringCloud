@@ -1,15 +1,22 @@
 spring:
-   security:
-      user:
-         name: ${SECURITY_NAME:springCloud}
-         password: ${SECURITY_PASSWORD:123654}
+  security:
+    user:
+      name: ${SECURITY_NAME:springCloud}
+      password: ${SECURITY_PASSWORD:123654}
+  redis:
+    host: renlm.cn
+    port: 30379
+    timeout: 6000
+    password: GR12tcd^m8Gcd^m8170^0lGR2K^rr8dh
+    database: 6
+    clientName: eureka-server-dev
 eureka:
-   instance:
-      preferIpAddress: false
-      instanceId: ${EUREKA_INSTANCE_HOSTNAME:localhost}:${server.port}
-      hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
-   client:
-      registerWithEureka: ${REGISTER_WITH_EUREKA:true}
-      fetchRegistry: ${FETCH_REGISTRY:false}
-      serviceUrl:
-         defaultZone: ${EUREKA_SERVER:http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/}
+  instance:
+    preferIpAddress: false
+    instanceId: ${EUREKA_INSTANCE_HOSTNAME:localhost}:${server.port}
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    registerWithEureka: ${REGISTER_WITH_EUREKA:true}
+    fetchRegistry: ${FETCH_REGISTRY:false}
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/}
