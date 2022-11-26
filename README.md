@@ -16,6 +16,7 @@ $ keytool -genkeypair -alias keyStore -keyalg RSA \
 ```
 
 ```
+# 此种方式可能遭遇转义字符问题，可用ApiPost工具规避
 $ curl -X POST springCloud:123654@localhost:7000/encrypt -s -d {明文}
 $ curl -X POST springCloud:123654@localhost:7000/decrypt -s -d {密文}
 ```
