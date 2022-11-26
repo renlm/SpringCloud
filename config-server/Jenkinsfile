@@ -30,7 +30,8 @@ pipeline {
                 script {
                 	echo "构建镜像..."
                 	docker.withRegistry("${dockerRegistry}", "${aliyuncsCredential}") {
-                        docker.build("${dockerImage}:${TAG}", "--build-arg SPRING_PROFILES_ACTIVE=prod -f ${PROJECT_DIR}/Dockerfile .")
+                		def profile = params.Profile == null ? 'prod' : params.Profile
+                        docker.build("${dockerImage}:${TAG}", "--build-arg SPRING_PROFILES_ACTIVE=${profile} -f ${PROJECT_DIR}/Dockerfile .")
                     }
                 }
             }
