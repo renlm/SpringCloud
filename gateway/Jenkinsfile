@@ -20,8 +20,7 @@ pipeline {
                 echo "Maven构建..."
                 dir("${projectDir}") { 
 	                script {
-	                	def profile = params.Profile == null ? 'prod' : params.Profile
-		            	sh "mvn clean package -P ${profile} -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
+		            	sh "mvn clean package -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
 	                }
                 }
             }
