@@ -16,13 +16,15 @@ spring:
           uri: https://gitee.com/renlm/config-repo
           forcePull: true
           defaultLabel: master
+          searchPaths:
+          - '*/**'
 encrypt:
-  failOnError: false
+  failOnError: true
   keyStore:
     location: classpath:keyStore.jks
-    password: 123654
-    alias: keyStore
-    secret: 123654
+    password: ${KEY_STORE_PASSWORD:123654}
+    alias: ${KEY_STORE_ALIAS:keyStore}
+    secret: ${KEY_STORE_SECRET:123654}
 management:
   endpoints:
     web:
