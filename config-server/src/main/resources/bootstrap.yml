@@ -15,6 +15,7 @@ spring:
         git:
           uri: https://gitee.com/renlm/config-repo
           forcePull: true
+          cloneOnStart: true
           defaultLabel: master
           searchPaths:
           - '*/**'
