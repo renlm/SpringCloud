@@ -1,7 +1,0 @@
-spring:
-  rabbitmq:
-    virtualHost: /renlm
-    host: renlm.cn
-    port: 30672
-    username: renlm
-    password: MR1bi1Q^YhtMKit_0lcsmRa78Q^02dfs
