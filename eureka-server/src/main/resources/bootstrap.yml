@@ -1,5 +1,3 @@
-server:
-  port: 7001
 spring:
   application:
     name: eureka-server
@@ -7,6 +5,7 @@ spring:
     active: dev
   cloud:
     config:
+      failFast: true
       uri: ${CONFIG_URI:http://localhost:7000}
       username: ${CONFIG_USERNAME:springCloud}
       password: ${CONFIG_PASSWORD:123654}
