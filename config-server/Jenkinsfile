@@ -4,6 +4,7 @@ pipeline {
         maven 'maven-3.6.3'
     }
     environment {
+    	PROJECT_DIR = "${WORKSPACE}/config-server"
     	DATE = new Date().format('yy.M')
         TAG = "${DATE}.${BUILD_NUMBER}"
 		rancherCredential = 'Rancher'
@@ -17,7 +18,7 @@ pipeline {
         stage ('Maven Build') {
             steps {
                 echo "Maven构建..."
-                dir("${WORKSPACE}/config-server") { 
+                dir("${PROJECT_DIR}") { 
 	                script {
 		            	sh "mvn clean package -P prod -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
 	                }
@@ -29,7 +30,7 @@ pipeline {
                 script {
                 	echo "构建镜像..."
                 	docker.withRegistry("${dockerRegistry}", "${aliyuncsCredential}") {
-                        docker.build("${dockerImage}:${TAG}", "-f ${WORKSPACE}/Dockerfile .")
+                        docker.build("${dockerImage}:${TAG}", "-f ${PROJECT_DIR}/Dockerfile .")
                     }
                 }
             }

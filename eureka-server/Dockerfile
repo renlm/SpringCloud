@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk-alpine
-ADD eureka-server-0.0.1.jar app.jar
+ADD target/eureka-server-0.0.1.jar app.jar
 VOLUME /tmp
 VOLUME /target
 RUN bash -c 'touch /app.jar'
