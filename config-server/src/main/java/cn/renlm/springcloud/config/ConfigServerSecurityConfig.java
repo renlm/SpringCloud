@@ -3,7 +3,6 @@ package cn.renlm.springcloud.config;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 /**
  * 
@@ -13,7 +12,6 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  *
  */
 @EnableWebSecurity
-@EnableRedisHttpSession
 public class ConfigServerSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override

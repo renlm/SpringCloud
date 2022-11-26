@@ -5,6 +5,17 @@ spring:
     name: config-server
   profiles:
     active: dev
+  security:
+    user:
+      name: ${SECURITY_NAME:springCloud}
+      password: ${SECURITY_PASSWORD:123654}
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/renlm/config-repo
+          forcePull: true
+          defaultLabel: master
 encrypt:
   failOnError: false
   keyStore:
