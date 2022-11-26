@@ -1,13 +1,15 @@
 spring:
   cloud:
     config:
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
       label: master
       failFast: true
       username: springCloud
       password: 123654
       discovery:
         enabled: true
-        service-id: config-server
+        serviceId: config-server
 eureka:
   instance:
     preferIpAddress: false
