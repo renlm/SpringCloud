@@ -5,4 +5,5 @@ VOLUME /target
 RUN touch /app.jar
 EXPOSE 7000
 ARG SPRING_PROFILES_ACTIVE
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar","--spring.profiles.active=${SPRING_PROFILES_ACTIVE}"]
+ENV PROFILE ${SPRING_PROFILES_ACTIVE}
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar","--spring.profiles.active=${PROFILE}"]
