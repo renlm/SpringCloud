@@ -13,6 +13,7 @@ pipeline {
     	projectDir = "${WORKSPACE}/config-server"
 		dockerImage = 'registry.cn-hangzhou.aliyuncs.com/rlm/config-server'
 		workloadUrl = '/project/c-m-94bhmf8k:p-rrspw/workloads/statefulset:renlm:configserver'
+		profile = params.Profile == null ? 'prod' : params.Profile
     }
     stages {
         stage ('Maven Build') {
@@ -20,7 +21,7 @@ pipeline {
                 echo "Maven构建..."
                 dir("${projectDir}") { 
 	                script {
-		            	sh "mvn clean package -P prod -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
+		            	sh "mvn clean package -P ${profile} -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
 	                }
                 }
             }
@@ -31,7 +32,6 @@ pipeline {
                 	echo "构建镜像..."
                 	dir("${projectDir}") {
 	                	docker.withRegistry("${dockerRegistry}", "${aliyuncsCredential}") {
-	                		def profile = params.Profile == null ? 'prod' : params.Profile
 	                        docker.build("${dockerImage}:${TAG}", "--build-arg SPRING_PROFILES_ACTIVE=${profile} -f ${projectDir}/Dockerfile .")
 	                    }
                     }

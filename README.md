@@ -20,3 +20,11 @@ $ keytool -genkeypair -alias keyStore -keyalg RSA \
 $ curl -X POST springCloud:123654@localhost:7000/encrypt -s -d {明文}
 $ curl -X POST springCloud:123654@localhost:7000/decrypt -s -d {密文}
 ```
+
+配置中心添加启动参数
+
+```
+--KEY_STORE_PASSWORD=123654
+--KEY_STORE_ALIAS=keyStore
+--KEY_STORE_SECRET=123654
+```
