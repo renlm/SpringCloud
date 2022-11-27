@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:17-jdk-alpine
 ADD target/gateway-0.0.1.jar app.jar
 VOLUME /tmp
 RUN touch /app.jar
