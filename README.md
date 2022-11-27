@@ -7,7 +7,7 @@
 https://spring.io/projects/spring-cloud
 ```
 
-## 加密解密
+## 配置中心密文
 
 ```
 $ keytool -genkeypair -alias keyStore -keyalg RSA \
@@ -16,14 +16,13 @@ $ keytool -genkeypair -alias keyStore -keyalg RSA \
 ```
 
 ```
-# 此种方式可能遭遇转义字符问题，可用ApiPost工具规避
+# 可能有转义字符的问题，可用ApiPost工具规避
 $ curl -X POST springCloud:123654@localhost:7000/encrypt -s -d {明文}
 $ curl -X POST springCloud:123654@localhost:7000/decrypt -s -d {密文}
 ```
 
-配置中心添加启动参数
-
 ```
+# 本地开发时，添加启动参数
 --KEY_STORE_PASSWORD=123654
 --KEY_STORE_ALIAS=keyStore
 --KEY_STORE_SECRET=123654
