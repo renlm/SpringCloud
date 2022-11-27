@@ -20,13 +20,9 @@
 		<!-- 版本管理 -->
 		<spring-boot.version>2.6.14</spring-boot.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
-		<spring-security-oauth2-authorization-server.version>1.0.0</spring-security-oauth2-authorization-server.version>
-		<spring-cloud-starter-oauth2.version>2.2.5.RELEASE</spring-cloud-starter-oauth2.version>
-		<hutool.version>5.8.10</hutool.version>
 	</properties>
 
 	<modules>
-		<module>auth-server</module>
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>gateway</module>
@@ -66,16 +62,6 @@
 				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-oauth2-authorization-server</artifactId>
-				<version>${spring-security-oauth2-authorization-server.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-oauth2</artifactId>
-				<version>${spring-cloud-starter-oauth2.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
