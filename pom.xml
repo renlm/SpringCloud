@@ -19,6 +19,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring-boot.version>2.6.14</spring-boot.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
+		<spring-cloud.oauth2.version>2.2.5.RELEASE</spring-cloud.oauth2.version>
 	</properties>
 
 	<modules>
@@ -68,6 +69,11 @@
 				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-oauth2</artifactId>
+				<version>${spring-cloud.oauth2.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
