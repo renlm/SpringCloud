@@ -92,6 +92,11 @@
 
 	<repositories>
 		<repository>
+			<id>huaweicloud</id>
+			<name>Huawei Maven</name>
+			<url>https://mirrors.huaweicloud.com/repository/maven</url>
+		</repository>
+		<repository>
 			<id>aliyun</id>
 			<name>Aliyun Public</name>
 			<url>https://maven.aliyun.com/repository/public</url>
@@ -99,6 +104,11 @@
 	</repositories>
 
 	<pluginRepositories>
+		<pluginRepository>
+			<id>huaweicloud</id>
+			<name>Huawei Maven</name>
+			<url>https://mirrors.huaweicloud.com/repository/maven</url>
+		</pluginRepository>
 		<pluginRepository>
 			<id>aliyun</id>
 			<name>Aliyun Public</name>
