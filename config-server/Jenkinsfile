@@ -1,7 +1,6 @@
 pipeline {
 	agent any
     tools {
-        jdk '17-jdk-alpine'
         maven 'maven-3.6.3'
     }
     environment {
@@ -22,9 +21,6 @@ pipeline {
                 dir("${projectDir}") { 
 	                script {
 	                	def profile = params.Profile == null ? 'prod' : params.Profile
-	                	sh 'export JAVA_HOME=/var/jenkins_home/tools/hudson.model.JDK/17-jdk-alpine'
-						sh 'export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:'
-						sh 'source ~/.bashrc'
 		            	sh "mvn clean package -P ${profile} -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
 	                }
                 }

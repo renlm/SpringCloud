@@ -1,7 +1,6 @@
 pipeline {
 	agent any
     tools {
-        jdk '17-jdk-alpine'
         maven 'maven-3.6.3'
     }
     environment {
