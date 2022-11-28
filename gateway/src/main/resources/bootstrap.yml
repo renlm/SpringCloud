@@ -6,10 +6,9 @@ spring:
   cloud:
     config:
       failFast: true
-      name: ${spring.application.name},eureka-client
-      uri: ${CONFIG_URI:http://localhost:7000}
-      username: ${CONFIG_USERNAME:springCloud}
-      password: ${CONFIG_PASSWORD:123654}
+      uri: https://config-server.renlm.cn
+      username: springCloud
+      password: x654123
 management:
   endpoints:
     web:
