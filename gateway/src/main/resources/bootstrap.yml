@@ -1,11 +1,37 @@
+server:
+  port: 7002
 spring:
   application:
     name: gateway
   profiles:
     active: dev
+  security:
+    oauth2:
+      client:
+        registration:
+          messaging-gateway-oidc:
+            provider: gateway-client-provider
+            client-id: relive-client
+            client-secret: relive-client
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - openid
+              - profile
+            client-name: messaging-gateway-oidc
+        provider:
+          gateway-client-provider:
+            authorization-uri: http://127.0.0.1:8080/oauth2/authorize
+            token-uri: http://127.0.0.1:8080/oauth2/token
+            jwk-set-uri: http://127.0.0.1:8080/oauth2/jwks
+            user-info-uri: http://127.0.0.1:8080/userinfo
+            user-name-attribute: sub
   cloud:
-    config:
-      failFast: true
-      uri: https://config-server.renlm.cn
-      username: springCloud
-      password: x654123
+    gateway:
+      routes:
+      - id: npmmirror
+        uri: https://registry.npmmirror.com
+        predicates:
+        - Path=/npmmirror/**
+        filters:
+        - StripPrefix=1
