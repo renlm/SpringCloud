@@ -1,0 +1,24 @@
+package cn.renlm.springcloud.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.session.SaveMode;
+import org.springframework.session.data.redis.config.annotation.web.server.EnableRedisWebSession;
+
+/**
+ * 共享会话
+ * 
+ * @author Renlm
+ *
+ */
+@Configuration
+@EnableRedisWebSession(saveMode = SaveMode.ALWAYS)
+public class SessionConfig {
+
+	@Bean
+	public LettuceConnectionFactory redisConnectionFactory() {
+		return new LettuceConnectionFactory();
+	}
+
+}
