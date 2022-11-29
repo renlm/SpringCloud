@@ -9,8 +9,3 @@ spring:
       uri: https://config-server.renlm.cn
       username: springCloud
       password: x654123
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
