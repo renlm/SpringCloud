@@ -10,9 +10,7 @@ import org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDeta
  * @author Renlm
  *
  */
-@SpringBootApplication(exclude = {
-		ReactiveUserDetailsServiceAutoConfiguration.class
-})
+@SpringBootApplication(exclude = { ReactiveUserDetailsServiceAutoConfiguration.class })
 public class GatewayApplication {
 
 	public static void main(String[] args) {

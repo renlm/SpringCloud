@@ -1,8 +1,9 @@
 package cn.renlm.springcloud.config;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
@@ -21,9 +22,11 @@ public class OAuth2SecurityConfig {
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
 		http
 			.authorizeExchange(authorize -> 
-				authorize.anyExchange().authenticated()
+				authorize
+					.anyExchange()
+					.authenticated()
 			)
-			.oauth2Login(Customizer.withDefaults())
+			.oauth2Login(withDefaults())
 			.cors().disable();
 		return http.build();
 	}
