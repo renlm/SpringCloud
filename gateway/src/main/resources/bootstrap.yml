@@ -26,9 +26,9 @@ spring:
       client:
         registration:
           gatewayOidc:
-            provider: gatewayClientProvider
-            clientId: relive-client
-            clientSecret: relive-client
+            provider: gateway
+            clientId: C533D1745CA04BE6B94031B118B36EA5
+            clientSecret: secret
             authorizationGrantType: authorization_code
             redirectUri: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope:
@@ -36,7 +36,7 @@ spring:
             - profile
             clientName: gatewayOidc
         provider:
-          gatewayClientProvider:
+          gateway:
             authorizationUri: http://127.0.0.1:8080/oauth2/authorize
             tokenUri: http://127.0.0.1:8080/oauth2/token
             jwkSetUri: http://127.0.0.1:8080/oauth2/jwks
