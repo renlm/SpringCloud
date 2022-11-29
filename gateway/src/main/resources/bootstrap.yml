@@ -1,26 +1,26 @@
 server:
   port: 7002
-  servlet:
+  reactive:
     session:
       cookie:
-        name: GATEWAYSID
+        name: GATEWAY
 spring:
   application:
     name: gateway
   profiles:
     active: dev
-  session:
-    storeType: redis
-    redis:
-      flushMode: on_save
-      namespace: gateway:session
   redis:
+    database: 1
     host: renlm.cn
     port: 30379
-    timeout: 6000
     password: GR12tcd^m8Gcd^m8170^0lGR2K^rr8dh
-    database: 8
-    clientName: gateway
+    timeout: 10s
+    lettuce:
+      pool:
+        max-active: 256
+        max-wait: 2000ms
+        max-idle: 10
+        min-idle: 5
   security:
     oauth2:
       client:
@@ -30,10 +30,10 @@ spring:
             client-id: relive-client
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope:
-              - openid
-              - profile
+            - openid
+            - profile
             client-name: messaging-gateway-oidc
         provider:
           gateway-client-provider:

@@ -3,7 +3,6 @@ package cn.renlm.springcloud.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.session.SaveMode;
 import org.springframework.session.data.redis.config.annotation.web.server.EnableRedisWebSession;
 
 /**
@@ -12,8 +11,8 @@ import org.springframework.session.data.redis.config.annotation.web.server.Enabl
  * @author Renlm
  *
  */
-@Configuration
-@EnableRedisWebSession(saveMode = SaveMode.ALWAYS)
+@EnableRedisWebSession
+@Configuration(proxyBeanMethods = false)
 public class SessionConfig {
 
 	@Bean
