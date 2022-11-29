@@ -3,7 +3,7 @@ server:
   servlet:
     session:
       cookie:
-        name: GSESSIONID
+        name: GATEWAYSID
 spring:
   application:
     name: gateway
@@ -18,9 +18,9 @@ spring:
     host: renlm.cn
     port: 30379
     timeout: 6000
-    password: "GR12tcd^m8Gcd^m8170^0lGR2K^rr8dh"
-    database: 3
-    clientName: gateway-dev
+    password: GR12tcd^m8Gcd^m8170^0lGR2K^rr8dh
+    database: 8
+    clientName: gateway
   security:
     oauth2:
       client:
