@@ -7,16 +7,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.session.data.redis.config.annotation.web.server.EnableRedisWebSession;
 
 /**
- * 默认安全配置
+ * Security 配置
  * 
  * @author Renlm
  *
  */
+@EnableRedisWebSession
 @EnableWebFluxSecurity
 @Configuration(proxyBeanMethods = false)
-public class OAuth2Config {
+public class WebFluxSecurityConfig {
 
 	@Bean
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
