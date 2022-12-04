@@ -1,5 +1,9 @@
 server:
   port: 7000
+  servlet:
+    session:
+      cookie:
+        name: CONFIG-SERVER
 spring:
   application:
     name: config-server
