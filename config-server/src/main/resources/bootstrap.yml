@@ -1,15 +1,8 @@
 server:
   port: 7000
-  servlet:
-    session:
-      cookie:
-        name: CONFIG-SERVER
 spring:
   application:
     name: config-server
-  session:
-    redis:
-      namespace: configserver:session
   security:
     user:
       name: ${SECURITY_NAME:springCloud}
