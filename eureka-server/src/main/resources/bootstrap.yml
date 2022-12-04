@@ -10,8 +10,3 @@ spring:
       uri: ${CONFIG_URI:http://localhost:7000}
       username: ${CONFIG_USERNAME:springCloud}
       password: ${CONFIG_PASSWORD:123654}
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
