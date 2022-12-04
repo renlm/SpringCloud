@@ -31,8 +31,3 @@ encrypt:
     password: ${KEY_STORE_PASSWORD:123654}
     alias: ${KEY_STORE_ALIAS:keyStore}
     secret: ${KEY_STORE_SECRET:123654}
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
