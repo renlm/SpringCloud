@@ -1,54 +1,17 @@
-server:
-  port: 7002
-  reactive:
-    session:
-      cookie:
-        name: GATEWAY
 spring:
   application:
     name: gateway
   profiles:
     active: dev
-  redis:
-    database: 1
-    host: renlm.cn
-    port: 30379
-    password: GR12tcd^m8Gcd^m8170^0lGR2K^rr8dh
-    timeout: 10s
-    lettuce:
-      pool:
-        max-active: 256
-        max-wait: 2000ms
-        max-idle: 10
-        min-idle: 5
-  security:
-    oauth2:
-      client:
-        registration:
-          messaging-gateway-oidc:
-            provider: gateway-client-provider
-            client-id: relive-client
-            client-secret: secret
-            authorization-grant-type: authorization_code
-            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
-            scope:
-            - openid
-            - profile
-            client-name: messaging-gateway-oidc
-        provider:
-          gateway-client-provider:
-            authorization-uri: http://127.0.0.1:8080/oauth2/authorize
-            token-uri: http://127.0.0.1:8080/oauth2/token
-            jwk-set-uri: http://127.0.0.1:8080/oauth2/jwks
-            user-info-uri: http://127.0.0.1:8080/userinfo
-            user-name-attribute: sub
   cloud:
-    gateway:
-      routes:
-      - id: npmmirror
-        uri: https://registry.npmmirror.com
-        predicates:
-        - Path=/npmmirror/**
-        filters:
-        - TokenRelay
-        - StripPrefix=1
+    config:
+      failFast: true
+      name: ${spring.application.name},eureka-client
+      uri: ${CONFIG_URI:http://localhost:7000}
+      username: ${CONFIG_USERNAME:springCloud}
+      password: ${CONFIG_PASSWORD:123654}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

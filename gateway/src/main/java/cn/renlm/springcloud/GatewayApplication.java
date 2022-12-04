@@ -3,6 +3,7 @@ package cn.renlm.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDetailsServiceAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * 启动类
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.security.reactive.ReactiveUserDeta
  * @author Renlm
  *
  */
+@EnableDiscoveryClient
 @SpringBootApplication(exclude = { ReactiveUserDetailsServiceAutoConfiguration.class })
 public class GatewayApplication {
 
