@@ -7,6 +7,10 @@ server:
 spring:
   application:
     name: config-server
+  session:
+    storeType: redis
+    redis:
+      namespace: configserver:session
   security:
     user:
       name: ${SECURITY_NAME:springCloud}
