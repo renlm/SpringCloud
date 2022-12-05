@@ -22,14 +22,9 @@ public class WebFluxSecurityConfig {
 
 	@Bean
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
-		http
-			.authorizeExchange(authorize -> 
-				authorize
-					.anyExchange()
-					.authenticated()
-			)
-			.oauth2Login(withDefaults())
-			.cors().disable();
+		http.authorizeExchange().anyExchange().authenticated();
+		http.oauth2ResourceServer().jwt();
+		http.oauth2Login(withDefaults());
 		return http.build();
 	}
 
