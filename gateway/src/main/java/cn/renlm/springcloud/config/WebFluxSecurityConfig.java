@@ -1,5 +1,7 @@
 package cn.renlm.springcloud.config;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
@@ -22,6 +24,7 @@ public class WebFluxSecurityConfig {
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
 		http.authorizeExchange().anyExchange().authenticated();
 		http.oauth2ResourceServer().jwt();
+		http.oauth2Login(withDefaults());
 		return http.build();
 	}
 
