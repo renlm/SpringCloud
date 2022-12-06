@@ -1,5 +1,21 @@
 server:
   port: 7000
+encrypt:
+  failOnError: true
+  keyStore:
+    location: classpath:keyStore.jks
+    password: ${KEY_STORE_PASSWORD:storepass}
+    alias: ${KEY_STORE_ALIAS:alias}
+    secret: ${KEY_STORE_SECRET:keypass}
+logging:
+  level:
+    root: info
+  file:
+    name: /opt/log/configServer.log
+  logback:
+    rollingpolicy:
+      maxFileSize: 512MB
+      maxHistory: 30
 spring:
   application:
     name: config-server
@@ -17,10 +33,3 @@ spring:
           defaultLabel: master
           searchPaths:
           - '*/**'
-encrypt:
-  failOnError: true
-  keyStore:
-    location: classpath:keyStore.jks
-    password: ${KEY_STORE_PASSWORD:storepass}
-    alias: ${KEY_STORE_ALIAS:alias}
-    secret: ${KEY_STORE_SECRET:keypass}
