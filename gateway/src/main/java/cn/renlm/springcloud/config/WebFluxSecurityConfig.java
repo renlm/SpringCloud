@@ -36,7 +36,7 @@ public class WebFluxSecurityConfig {
 			SecurityIgnoreProperties securityIgnoreProperties) {
 		http.authorizeExchange()
 			.matchers(new ServerWebExchangeMatcher() {
-			
+	
 				@Override
 				public Mono<MatchResult> matches(ServerWebExchange exchange) {
 					List<String> whites = securityIgnoreProperties.getWhites();
@@ -50,7 +50,7 @@ public class WebFluxSecurityConfig {
 					}
 					return MatchResult.notMatch();
 				}
-			
+	
 			}).permitAll()
 		.pathMatchers(HttpMethod.OPTIONS).permitAll()
 		.anyExchange().authenticated();
