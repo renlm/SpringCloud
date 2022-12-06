@@ -1,5 +1,7 @@
 package cn.renlm.springcloud.config;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import java.time.Instant;
 
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
@@ -43,6 +45,7 @@ public class WebFluxSecurityConfig {
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
 		http.authorizeExchange().anyExchange().authenticated();
 		http.oauth2ResourceServer().opaqueToken();
+		http.oauth2Login(withDefaults());
 		return http.build();
 	}
 
