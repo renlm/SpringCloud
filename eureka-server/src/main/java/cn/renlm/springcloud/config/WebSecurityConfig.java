@@ -13,7 +13,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  *
  */
 @EnableWebSecurity
-@EnableRedisHttpSession
+@EnableRedisHttpSession(redisNamespace = "eurekaserver:session")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
