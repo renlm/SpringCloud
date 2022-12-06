@@ -49,12 +49,14 @@ public class WebFluxSecurityConfig {
 	@Bean
 	public ReactiveOpaqueTokenIntrospector introspector(ReactiveClientRegistrationRepository repository,
 			OAuth2ResourceServerProperties properties) {
-		Opaquetoken ot = properties.getOpaquetoken();
-		NimbusReactiveOpaqueTokenIntrospector delegate = new NimbusReactiveOpaqueTokenIntrospector(
-				ot.getIntrospectionUri(), ot.getClientId(), ot.getClientId());
+		Opaquetoken opaquetoken = properties.getOpaquetoken();
+		String uri = opaquetoken.getIntrospectionUri();
+		String id = opaquetoken.getClientId();
+		String secret = opaquetoken.getClientSecret();
+		NimbusReactiveOpaqueTokenIntrospector delegate = new NimbusReactiveOpaqueTokenIntrospector(uri, id, secret);
 		ReactiveOAuth2UserService<OAuth2UserRequest, OAuth2User> oauth2UserService = new DefaultReactiveOAuth2UserService();
 		return token -> {
-			return Mono.zip(delegate.introspect(token), repository.findByRegistrationId(ot.getClientId())).map(t -> {
+			return Mono.zip(delegate.introspect(token), repository.findByRegistrationId(id)).map(t -> {
 				OAuth2AuthenticatedPrincipal authorized = t.getT1();
 				ClientRegistration clientRegistration = t.getT2();
 				Instant issuedAt = authorized.getAttribute(OAuth2TokenIntrospectionClaimNames.IAT);
