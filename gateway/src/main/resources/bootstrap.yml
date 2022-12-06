@@ -6,7 +6,7 @@ spring:
   cloud:
     config:
       failFast: true
-      name: gateway,eureka-client,redis,rabbitmq,logging,resourceserver-opaqueToken
+      name: gateway,eureka-client,redis,rabbitmq,logging,oauth2resourceserver-opaqueToken,oauth2client
       uri: ${CONFIG_URI:http://localhost:7000}
       username: ${CONFIG_USERNAME:springCloud}
       password: ${CONFIG_PASSWORD:123654}
