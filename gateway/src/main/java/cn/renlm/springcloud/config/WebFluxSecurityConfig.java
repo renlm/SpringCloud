@@ -34,6 +34,7 @@ public class WebFluxSecurityConfig {
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http,
 			SecurityIgnoreProperties securityIgnoreProperties) {
 		http.authorizeExchange().matchers(new ServerWebExchangeMatcher() {
+			
 			@Override
 			public Mono<MatchResult> matches(ServerWebExchange exchange) {
 				List<String> whites = securityIgnoreProperties.getWhites();
@@ -47,7 +48,9 @@ public class WebFluxSecurityConfig {
 				}
 				return MatchResult.notMatch();
 			}
-		}).permitAll().anyExchange().authenticated();
+			
+		}).permitAll()
+		.anyExchange().authenticated();
 		http.oauth2ResourceServer().jwt();
 		http.oauth2Login(withDefaults());
 		return http.build();
