@@ -56,7 +56,7 @@ public class WebFluxSecurityConfig {
 		.anyExchange().authenticated();
 		http.oauth2ResourceServer().jwt();
 		http.oauth2Login(withDefaults());
-		http.cors().and().csrf().disable();
+		http.csrf().disable();
 		return http.build();
 	}
 
