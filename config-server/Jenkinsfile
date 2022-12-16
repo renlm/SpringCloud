@@ -12,7 +12,7 @@ pipeline {
 		dockerRegistry = 'https://registry.cn-hangzhou.aliyuncs.com'
     	projectDir = "${WORKSPACE}/config-server"
 		dockerImage = 'registry.cn-hangzhou.aliyuncs.com/rlm/config-server'
-		workloadUrl = '/project/c-m-m4qpqnz4:p-w97pv/workloads/statefulset:renlm:configserver'
+		workloadUrl = '/project/c-m-rjgrxdsn:p-sk56m/workloads/statefulset:renlm:configserver'
     }
     stages {
         stage ('Maven Build') {
