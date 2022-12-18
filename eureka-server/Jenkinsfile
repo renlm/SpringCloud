@@ -7,7 +7,6 @@ pipeline {
     	DATE = new Date().format('yy.M')
         TAG = "${DATE}.${BUILD_NUMBER}"
 		rancherCredential = 'Rancher'
-		giteeCredential = 'Gitee'
         aliyuncsCredential = 'Aliyuncs'
 		dockerRegistry = 'https://registry.cn-hangzhou.aliyuncs.com'
     	projectDir = "${WORKSPACE}/eureka-server"
