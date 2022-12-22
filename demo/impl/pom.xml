@@ -15,6 +15,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>cn.renlm</groupId>
+			<artifactId>api</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
