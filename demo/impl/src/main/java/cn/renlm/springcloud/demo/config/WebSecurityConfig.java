@@ -1,8 +1,12 @@
 package cn.renlm.springcloud.demo.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.util.AntPathMatcher;
+
+import cn.renlm.springcloud.demo.properties.SecurityIgnoreProperties;
 
 /**
  * 
@@ -12,13 +16,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  *
  */
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig {
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+	final AntPathMatcher antPathMatcher = new AntPathMatcher();
+
+	@Bean
+	public SecurityFilterChain securityWebFilterChain(HttpSecurity http,
+			SecurityIgnoreProperties securityIgnoreProperties) throws Exception {
+		http.authorizeHttpRequests().requestMatchers().permitAll();
 		http.csrf().disable();
-		super.configure(http);
+		return http.build();
 	}
 
 }
