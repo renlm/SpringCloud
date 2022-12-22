@@ -5,7 +5,7 @@
 
 	<parent>
 		<groupId>cn.renlm</groupId>
-		<artifactId>spring-cloud</artifactId>
+		<artifactId>api</artifactId>
 		<version>0.0.1</version>
 	</parent>
 
@@ -14,9 +14,6 @@
 	<description>公共接口</description>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-feign</artifactId>
-		</dependency>
+		
 	</dependencies>
 </project>

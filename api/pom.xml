@@ -13,4 +13,8 @@
 	<name>API</name>
 	<description>API接口</description>
 
+	<modules>
+		<module>interface</module>
+	</modules>
+
 </project>
