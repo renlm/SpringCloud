@@ -14,15 +14,15 @@ import cn.renlm.springcloud.response.Result;
  * @author Renlm
  *
  */
-@FeignClient(contextId = "remoteGeoService", value = "demo-api")
+@FeignClient(contextId = "remoteGeoService", path = "/geo", value = "demo-api")
 public interface RemoteGeoService {
 
 	/**
-	 * 获取行政区划
+	 * 获取中国行政区划
 	 * 
 	 * @return
 	 */
-	@GetMapping(value = "/geo/json", headers = "from=Y")
-	Result<List<GeoJson>> getGeoJson();
+	@GetMapping(value = "/getAllChinese", headers = "from=Y")
+	Result<List<GeoJson>> getAllChinese();
 
 }
