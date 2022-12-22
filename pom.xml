@@ -21,6 +21,7 @@
 	</properties>
 
 	<modules>
+		<module>common</module>
 		<module>config-server</module>
 		<module>demo</module>
 		<module>eureka-server</module>
