@@ -11,13 +11,19 @@ import cn.renlm.springcloud.demo.service.GeoService;
 import cn.renlm.springcloud.response.Result;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 行政区划
+ * 
+ * @author Renlm
+ *
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/geo")
 public class GeoController {
-	
+
 	private final GeoService geoService;
-	
+
 	/**
 	 * 获取中国行政区划
 	 * 
