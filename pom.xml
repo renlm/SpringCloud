@@ -21,9 +21,9 @@
 	</properties>
 
 	<modules>
-		<module>api</module>
 		<module>config-server</module>
 		<module>eureka-server</module>
+		<module>feign</module>
 		<module>gateway</module>
 	</modules>
 
