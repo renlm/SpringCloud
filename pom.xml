@@ -22,8 +22,8 @@
 
 	<modules>
 		<module>config-server</module>
+		<module>demo</module>
 		<module>eureka-server</module>
-		<module>feign</module>
 		<module>gateway</module>
 	</modules>
 
