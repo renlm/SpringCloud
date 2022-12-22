@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class GeoJson implements Serializable {
+public class GeoDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

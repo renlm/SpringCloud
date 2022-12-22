@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import cn.renlm.springcloud.demo.dto.GeoJson;
+import cn.renlm.springcloud.demo.dto.GeoDto;
 import cn.renlm.springcloud.response.Result;
 
 /**
@@ -22,7 +22,7 @@ public interface RemoteGeoService {
 	 * 
 	 * @return
 	 */
-	@GetMapping(value = "/getAllChinese", headers = "from=Y")
-	Result<List<GeoJson>> getAllChinese();
+	@GetMapping(value = "/getChinese", headers = "from=Y")
+	Result<List<GeoDto>> getChinese();
 
 }
