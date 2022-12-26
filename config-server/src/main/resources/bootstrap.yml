@@ -6,6 +6,9 @@ encrypt:
     password: ${KEY_STORE_PASSWORD:storepass}
     alias: ${KEY_STORE_ALIAS:alias}
     secret: ${KEY_STORE_SECRET:keypass}
+jasypt:
+  encryptor:
+    password: ${JASYPT_ENCRYPTOR_PASSWORD:${KEY_STORE_PASSWORD}}
 logging:
   level:
     root: info
