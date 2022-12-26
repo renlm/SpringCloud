@@ -36,26 +36,25 @@ public class WebFluxSecurityConfig {
 	@Bean
 	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http,
 			SecurityIgnoreProperties securityIgnoreProperties) {
-		http.authorizeExchange()
-			.matchers(new ServerWebExchangeMatcher() {
-	
-				@Override
-				public Mono<MatchResult> matches(ServerWebExchange exchange) {
-					List<String> whites = securityIgnoreProperties.getWhites();
-					ServerHttpRequest request = exchange.getRequest();
-					URI uri = request.getURI();
-					if (whites == null) {
-						return MatchResult.notMatch();
-					}
-					for (String path : whites) {
-						if (antPathMatcher.match(path, uri.getPath())) {
-							return MatchResult.match();
-						}
-					}
+		http.authorizeExchange().matchers(new ServerWebExchangeMatcher() {
+
+			@Override
+			public Mono<MatchResult> matches(ServerWebExchange exchange) {
+				List<String> whites = securityIgnoreProperties.getWhites();
+				ServerHttpRequest request = exchange.getRequest();
+				URI uri = request.getURI();
+				if (whites == null) {
 					return MatchResult.notMatch();
 				}
-	
-			}).permitAll()
+				for (String path : whites) {
+					if (antPathMatcher.match(path, uri.getPath())) {
+						return MatchResult.match();
+					}
+				}
+				return MatchResult.notMatch();
+			}
+
+		}).permitAll()
 		.pathMatchers(HttpMethod.OPTIONS).permitAll()
 		.anyExchange().authenticated();
 		http.oauth2ResourceServer().jwt();
