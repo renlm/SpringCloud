@@ -72,7 +72,7 @@ public class WebFluxSecurityConfig {
 		}).permitAll()
 		.pathMatchers(HttpMethod.OPTIONS).permitAll()
 		.anyExchange().authenticated();
-		http.oauth2ResourceServer().jwt();
+		http.oauth2ResourceServer().opaqueToken();
 		http.oauth2Login(withDefaults());
 		http.csrf().disable();
 		return http.build();
