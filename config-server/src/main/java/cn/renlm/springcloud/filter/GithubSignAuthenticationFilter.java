@@ -21,6 +21,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * WebHook 认证
@@ -28,6 +29,7 @@ import lombok.AllArgsConstructor;
  * @author Renlm
  *
  */
+@Slf4j
 @Component
 @AllArgsConstructor
 public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
@@ -44,9 +46,10 @@ public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
 		if (HEADERS_VALUE.equals(request.getHeader(HEADERS_KEY))) {
 			ContentCachingRequestWrapper requestWrapper = new ContentCachingRequestWrapper(request);
 			byte[] bytes = requestWrapper.getContentAsByteArray();
-			String body = new String(bytes, request.getCharacterEncoding());
-			String sign = this.sign(body, webHookProperties.getSignSecret());
+			String sign = this.sign(bytes, webHookProperties.getSignSecret());
 			String signature = request.getHeader("X-Hub-Signature-256");
+			log.info("sign = {}", sign);
+			log.info("signature = {}", sign);
 			if (StrUtil.equals(sign, signature)) {
 				Authentication token = new UsernamePasswordAuthenticationToken(HEADERS_KEY, HEADERS_VALUE,
 						Collections.emptySet());
@@ -63,9 +66,9 @@ public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
 	 * @param secret
 	 * @return
 	 */
-	private String sign(String payload, String secret) {
+	private String sign(byte[] payload, String secret) {
 		HMac hMac = DigestUtil.hmac(HmacAlgorithm.HmacSHA256, secret.getBytes());
-		return hMac.digestHex(payload);
+		return "sha256=" + hMac.digestHex(payload);
 	}
 
 }
