@@ -10,9 +10,7 @@ jasypt:
   encryptor:
     password: ${JASYPT_ENCRYPTOR_PASSWORD:${KEY_STORE_PASSWORD}}
 webhook:
-  secret:
-    name: ${SECURITY_NAME:springCloud}
-    password: ${SECURITY_PASSWORD:123654}
+  signSecret: 123654
 logging:
   level:
     root: info

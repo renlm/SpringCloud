@@ -6,6 +6,7 @@ import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import cn.hutool.crypto.digest.HMac;
 import cn.hutool.crypto.digest.HmacAlgorithm;
+import cn.hutool.json.JSONUtil;
 
 /**
  * WebHook 签名认证
@@ -31,9 +32,9 @@ public class WebHookSignTest {
 		String secret = "123654";
 		String stringToSign = ResourceUtil.readUtf8Str("WebHook.Json");
 		HMac hMac = DigestUtil.hmac(HmacAlgorithm.HmacSHA256, secret.getBytes());
-		String digestHex = hMac.digestHex(stringToSign);
+		String digestHex = hMac.digestHex(JSONUtil.parse(stringToSign).toString());
 		System.out.println(digestHex);
-		System.out.println("5e4bddb1eb0748e425001202e183b211cb74a095c4982b3950e5e6632b121b6a".equals(digestHex));
+		System.out.println("11e619d555bd9756a87e8d7186e89416b552b8cb85f9ba68df70407984f83ba9".equals(digestHex));
 	}
-	
+
 }

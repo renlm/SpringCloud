@@ -1,7 +1,7 @@
 {
   "ref": "refs/heads/master",
-  "before": "59c243cde1941bd9c6013c24af5f389072acea1a",
-  "after": "e1e2264775f9e3e0e459796bf7ad2b0daa5dd223",
+  "before": "e1e2264775f9e3e0e459796bf7ad2b0daa5dd223",
+  "after": "2789449d6f5b3fd49ae7bbdd0e86dfb57166c5ba",
   "repository": {
     "id": 578033855,
     "node_id": "R_kgDOInQYvw",
@@ -72,13 +72,13 @@
     "deployments_url": "https://api.github.com/repos/renlm/ConfigRepo/deployments",
     "created_at": 1670994329,
     "updated_at": "2022-12-14T05:28:11Z",
-    "pushed_at": 1672133665,
+    "pushed_at": 1672141043,
     "git_url": "git://github.com/renlm/ConfigRepo.git",
     "ssh_url": "git@github.com:renlm/ConfigRepo.git",
     "clone_url": "https://github.com/renlm/ConfigRepo.git",
     "svn_url": "https://github.com/renlm/ConfigRepo",
     "homepage": null,
-    "size": 64,
+    "size": 65,
     "stargazers_count": 0,
     "watchers_count": 0,
     "language": null,
@@ -136,15 +136,15 @@
   "deleted": false,
   "forced": false,
   "base_ref": null,
-  "compare": "https://github.com/renlm/ConfigRepo/compare/59c243cde194...e1e2264775f9",
+  "compare": "https://github.com/renlm/ConfigRepo/compare/e1e2264775f9...2789449d6f5b",
   "commits": [
     {
-      "id": "e1e2264775f9e3e0e459796bf7ad2b0daa5dd223",
-      "tree_id": "a62a139da1371a4511c0755110019999132143ec",
+      "id": "2789449d6f5b3fd49ae7bbdd0e86dfb57166c5ba",
+      "tree_id": "5966afb8d3b7b114a48f9a2fbeae9f12f701b71b",
       "distinct": true,
       "message": "up",
-      "timestamp": "2022-12-27T17:34:22+08:00",
-      "url": "https://github.com/renlm/ConfigRepo/commit/e1e2264775f9e3e0e459796bf7ad2b0daa5dd223",
+      "timestamp": "2022-12-27T19:37:20+08:00",
+      "url": "https://github.com/renlm/ConfigRepo/commit/2789449d6f5b3fd49ae7bbdd0e86dfb57166c5ba",
       "author": {
         "name": "任黎明(10021235)",
         "email": "renlm-a@glodon.com"
@@ -165,12 +165,12 @@
     }
   ],
   "head_commit": {
-    "id": "e1e2264775f9e3e0e459796bf7ad2b0daa5dd223",
-    "tree_id": "a62a139da1371a4511c0755110019999132143ec",
+    "id": "2789449d6f5b3fd49ae7bbdd0e86dfb57166c5ba",
+    "tree_id": "5966afb8d3b7b114a48f9a2fbeae9f12f701b71b",
     "distinct": true,
     "message": "up",
-    "timestamp": "2022-12-27T17:34:22+08:00",
-    "url": "https://github.com/renlm/ConfigRepo/commit/e1e2264775f9e3e0e459796bf7ad2b0daa5dd223",
+    "timestamp": "2022-12-27T19:37:20+08:00",
+    "url": "https://github.com/renlm/ConfigRepo/commit/2789449d6f5b3fd49ae7bbdd0e86dfb57166c5ba",
     "author": {
       "name": "任黎明(10021235)",
       "email": "renlm-a@glodon.com"
