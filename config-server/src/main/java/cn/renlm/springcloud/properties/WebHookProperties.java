@@ -15,11 +15,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Component
-@ConfigurationProperties("webhook.secret")
+@ConfigurationProperties("webhook")
 public class WebHookProperties {
 
-	private String name;
-
-	private String password;
+	private String signSecret;
 
 }

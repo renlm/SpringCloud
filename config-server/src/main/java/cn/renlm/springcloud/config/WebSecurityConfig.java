@@ -2,6 +2,7 @@ package cn.renlm.springcloud.config;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,7 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-import cn.renlm.springcloud.filter.WebHookAuthenticationFilter;
+import cn.renlm.springcloud.filter.GiteeSignAuthenticationFilter;
+import cn.renlm.springcloud.filter.GithubSignAuthenticationFilter;
 
 /**
  * 
@@ -22,10 +24,16 @@ import cn.renlm.springcloud.filter.WebHookAuthenticationFilter;
 @Configuration(proxyBeanMethods = false)
 public class WebSecurityConfig {
 
+	@Autowired
+	private GiteeSignAuthenticationFilter giteeSignAuthenticationFilter;
+
+	@Autowired
+	private GithubSignAuthenticationFilter githubSignAuthenticationFilter;
+
 	@Bean
-	public SecurityFilterChain securityWebFilterChain(HttpSecurity http,
-			WebHookAuthenticationFilter webHookAuthenticationFilter) throws Exception {
-		http.addFilterBefore(webHookAuthenticationFilter, BasicAuthenticationFilter.class);
+	public SecurityFilterChain securityWebFilterChain(HttpSecurity http) throws Exception {
+		http.addFilterBefore(giteeSignAuthenticationFilter, BasicAuthenticationFilter.class);
+		http.addFilterBefore(githubSignAuthenticationFilter, BasicAuthenticationFilter.class);
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
 		http.httpBasic(withDefaults());
 		http.csrf().disable();

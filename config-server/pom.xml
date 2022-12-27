@@ -39,6 +39,18 @@
 			<artifactId>jasypt-spring-boot-starter</artifactId>
 			<version>3.0.5</version>
 		</dependency>
+
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-crypto</artifactId>
+			<version>5.8.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15to18</artifactId>
+			<version>1.72</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
