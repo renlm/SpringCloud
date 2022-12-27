@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import cn.renlm.springcloud.filter.WebHookAuthenticationFilter;
 
 /**
  * 
@@ -18,7 +21,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
 	@Bean
-	public SecurityFilterChain securityWebFilterChain(HttpSecurity http) throws Exception {
+	public SecurityFilterChain securityWebFilterChain(HttpSecurity http,
+			WebHookAuthenticationFilter webHookAuthenticationFilter) throws Exception {
+		http.addFilterBefore(webHookAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
 		http.httpBasic(withDefaults());
 		http.csrf().disable();
