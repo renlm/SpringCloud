@@ -38,7 +38,7 @@ public class WebHookAuthenticationFilter extends OncePerRequestFilter {
 		String password = webHookProperties.getPassword();
 		String secret = request.getHeader(name);
 		boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
-		if (isAuthenticated && StringUtils.hasText(secret) && secret.equals(password)) {
+		if (!isAuthenticated && StringUtils.hasText(secret) && secret.equals(password)) {
 			Authentication token = new UsernamePasswordAuthenticationToken(name, password, Collections.emptySet());
 			getContext().setAuthentication(token);
 		}
