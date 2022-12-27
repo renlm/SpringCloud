@@ -15,7 +15,6 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import cn.hutool.crypto.digest.HMac;
 import cn.hutool.crypto.digest.HmacAlgorithm;
-import cn.hutool.json.JSONUtil;
 import cn.renlm.springcloud.properties.WebHookProperties;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -51,7 +50,8 @@ public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
 			String signature = request.getHeader("X-Hub-Signature-256");
 			log.info("sign = {}", sign);
 			log.info("signature = {}", signature);
-			log.info("payload = {}", new String(bytes));
+			String body = new String(bytes, request.getCharacterEncoding());
+			log.info("payload = {}", body);
 			if (StrUtil.equals(sign, signature)) {
 				Authentication token = new UsernamePasswordAuthenticationToken(HEADERS_KEY, HEADERS_VALUE,
 						Collections.emptySet());
