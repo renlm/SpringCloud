@@ -4,6 +4,7 @@ import static org.springframework.security.core.context.SecurityContextHolder.ge
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Map;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,6 +16,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import cn.hutool.crypto.digest.HMac;
 import cn.hutool.crypto.digest.HmacAlgorithm;
+import cn.hutool.json.JSONUtil;
 import cn.renlm.springcloud.properties.WebHookProperties;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -51,7 +53,9 @@ public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
 			log.info("sign = {}", sign);
 			log.info("signature = {}", signature);
 			String body = new String(bytes, request.getCharacterEncoding());
+			Map<String, String[]> mp = request.getParameterMap();
 			log.info("payload = {}", body);
+			log.info("getParameterMap = {}", JSONUtil.toJsonStr(mp));
 			if (StrUtil.equals(sign, signature)) {
 				Authentication token = new UsernamePasswordAuthenticationToken(HEADERS_KEY, HEADERS_VALUE,
 						Collections.emptySet());
