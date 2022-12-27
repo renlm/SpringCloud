@@ -49,7 +49,7 @@ public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
 			String sign = this.sign(bytes, webHookProperties.getSignSecret());
 			String signature = request.getHeader("X-Hub-Signature-256");
 			log.info("sign = {}", sign);
-			log.info("signature = {}", sign);
+			log.info("signature = {}", signature);
 			if (StrUtil.equals(sign, signature)) {
 				Authentication token = new UsernamePasswordAuthenticationToken(HEADERS_KEY, HEADERS_VALUE,
 						Collections.emptySet());
