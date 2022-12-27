@@ -51,7 +51,7 @@ public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
 			String signature = request.getHeader("X-Hub-Signature-256");
 			log.info("sign = {}", sign);
 			log.info("signature = {}", signature);
-			log.info("payload = {}", JSONUtil.parse(new String(bytes)).toString());
+			log.info("payload = {}", new String(bytes));
 			if (StrUtil.equals(sign, signature)) {
 				Authentication token = new UsernamePasswordAuthenticationToken(HEADERS_KEY, HEADERS_VALUE,
 						Collections.emptySet());
