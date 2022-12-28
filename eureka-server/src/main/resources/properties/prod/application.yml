@@ -23,8 +23,8 @@ eureka:
     nonSecurePort: ${server.port}
     instanceId: ${eureka.instance.hostname}:${eureka.instance.nonSecurePort}
   server:
-    peerNodeConnectTimeoutMs: 500
-    peerNodeReadTimeoutMs: 3000
+    peer-node-connect-timeout-ms: 5000
+    peer-node-read-timeout-ms: 8000
   client:
     registerWithEureka: ${REGISTER_WITH_EUREKA:true}
     fetchRegistry: ${FETCH_REGISTRY:false}
