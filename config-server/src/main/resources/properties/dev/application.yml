@@ -7,3 +7,14 @@ spring:
     port: ENC(DKDAgwSEnMcWM1NFGYT7RbtlUOOVeeIKCaHs+nD1WD3KbOzh/pHQpa0dW2SHveeE)
     username: ENC(ag9RRP0UNl7mga4wyeZpz4nvIBbmRQm8zTxxBHE5OXVrRXDcbyXscDz8bgEb6kkg)
     password: ENC(5eYaqsS/dE9rKDPEMS2p9ZPRuICDM/pETw8nlgIg9q3g79oPhCchexDdtIcVLOmCxvbCQEgl+IjyMkCIHyzLLwXNIwAW1zkWw6ECsE1m0LQ=)
+eureka:
+  instance:
+    preferIpAddress: false
+    hostname: localhost
+    nonSecurePort: ${server.port}
+    instanceId: ${eureka.instance.hostname}:${server.port}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka
