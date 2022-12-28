@@ -22,6 +22,8 @@ eureka:
     hostname: localhost
     nonSecurePort: ${server.port}
     instanceId: ${eureka.instance.hostname}:${server.port}
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
   client:
     registerWithEureka: true
     fetchRegistry: false
