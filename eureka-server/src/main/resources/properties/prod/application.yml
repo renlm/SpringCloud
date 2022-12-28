@@ -22,14 +22,8 @@ eureka:
     hostname: ${EUREKA_INSTANCE_HOSTNAME}
     nonSecurePort: ${server.port}
     instanceId: ${eureka.instance.hostname}:${eureka.instance.nonSecurePort}
-  server:
-    waitTimeInMsWhenSyncEmpty: 0
   client:
     registerWithEureka: ${REGISTER_WITH_EUREKA:true}
     fetchRegistry: ${FETCH_REGISTRY:false}
     serviceUrl:
       defaultZone: ${EUREKA_SERVER}
-    restTemplateTimeout:
-      connectTimeout: 5000
-      connectRequestTimeout: 8000
-      socketTimeout: 30000
