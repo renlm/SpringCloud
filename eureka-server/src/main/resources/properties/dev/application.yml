@@ -23,7 +23,7 @@ eureka:
     nonSecurePort: ${server.port}
     instanceId: ${eureka.instance.hostname}:${server.port}
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka

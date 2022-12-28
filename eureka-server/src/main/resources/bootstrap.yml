@@ -1,5 +1,9 @@
 server:
   port: 7001
+  servlet:
+    session:
+      cookie:
+        name: EUREKA-SERVER
 jasypt:
   encryptor:
     password: ${JASYPT_ENCRYPTOR_PASSWORD:123654}

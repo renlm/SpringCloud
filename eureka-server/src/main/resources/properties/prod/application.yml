@@ -23,7 +23,7 @@ eureka:
     nonSecurePort: ${server.port}
     instanceId: ${eureka.instance.hostname}:${eureka.instance.nonSecurePort}
   client:
-    registerWithEureka: ${REGISTER_WITH_EUREKA:false}
+    registerWithEureka: ${REGISTER_WITH_EUREKA:true}
     fetchRegistry: ${FETCH_REGISTRY:false}
     serviceUrl:
       defaultZone: ${EUREKA_SERVER}
