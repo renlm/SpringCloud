@@ -19,3 +19,7 @@ logging:
 spring:
   application:
     name: eureka-server
+  security:
+    user:
+      name: ${SECURITY_NAME:springCloud}
+      password: ${SECURITY_PASSWORD:123654}
