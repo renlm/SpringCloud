@@ -29,3 +29,7 @@ eureka:
     fetchRegistry: ${FETCH_REGISTRY:false}
     serviceUrl:
       defaultZone: ${EUREKA_SERVER}
+    restTemplateTimeout:
+      connectTimeout: 5000
+      connectRequestTimeout: 8000
+      socketTimeout: 10000
