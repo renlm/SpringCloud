@@ -1,7 +1,5 @@
 package cn.renlm.springcloud.config;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +33,6 @@ public class WebSecurityConfig {
 		http.addFilterBefore(giteeSignAuthenticationFilter, BasicAuthenticationFilter.class);
 		http.addFilterBefore(githubSignAuthenticationFilter, BasicAuthenticationFilter.class);
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
-		http.httpBasic(withDefaults());
 		http.csrf().disable();
 		return http.build();
 	}
