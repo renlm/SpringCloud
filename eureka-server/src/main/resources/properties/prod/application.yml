@@ -23,10 +23,10 @@ eureka:
     nonSecurePort: ${server.port}
     instanceId: ${eureka.instance.hostname}:${eureka.instance.nonSecurePort}
   server:
-    peerNodeConnectTimeoutMs: 10000
-    peerNodeReadTimeoutMs: 10000
+    peerNodeConnectTimeoutMs: 1000
+    peerNodeReadTimeoutMs: 1000
   client:
-    registerWithEureka: ${REGISTER_WITH_EUREKA:true}
+    registerWithEureka: ${REGISTER_WITH_EUREKA:false}
     fetchRegistry: ${FETCH_REGISTRY:false}
     serviceUrl:
       defaultZone: ${EUREKA_SERVER}
