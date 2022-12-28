@@ -10,7 +10,7 @@ jasypt:
   encryptor:
     password: ${JASYPT_ENCRYPTOR_PASSWORD:${KEY_STORE_PASSWORD}}
 webhook:
-  signSecret: 123654
+  signSecret: ${WEBHOOK_SIGN_SECRET:123654}
 logging:
   level:
     root: info
