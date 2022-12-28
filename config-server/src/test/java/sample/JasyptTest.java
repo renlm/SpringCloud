@@ -13,6 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 配置加密
+启动时添加VM参数
+-DKEY_STORE_PASSWORD=storepass 
+-DKEY_STORE_ALIAS=alias
+-DKEY_STORE_SECRET=keypass
+-DJASYPT_ENCRYPTOR_PASSWORD=123654
  * 
  * @author Renlm
  *

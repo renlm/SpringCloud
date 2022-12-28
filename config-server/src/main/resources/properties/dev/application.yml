@@ -17,4 +17,4 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://springCloud:123654@localhost:7001/eureka
