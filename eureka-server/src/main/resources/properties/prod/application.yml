@@ -32,4 +32,4 @@ eureka:
     restTemplateTimeout:
       connectTimeout: 5000
       connectRequestTimeout: 8000
-      socketTimeout: 10000
+      socketTimeout: 30000
