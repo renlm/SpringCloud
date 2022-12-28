@@ -9,7 +9,7 @@ jasypt:
     password: ${JASYPT_ENCRYPTOR_PASSWORD:123654}
 logging:
   level:
-    root: ALL
+    root: TRACE
   file:
     name: /opt/log/eurekaServer.log
   logback:
