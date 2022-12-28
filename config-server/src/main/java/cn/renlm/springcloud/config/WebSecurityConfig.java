@@ -34,6 +34,8 @@ public class WebSecurityConfig {
 		http.addFilterBefore(githubSignAuthenticationFilter, BasicAuthenticationFilter.class);
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
 		http.csrf().disable();
+		http.httpBasic();
+		http.formLogin();
 		return http.build();
 	}
 
