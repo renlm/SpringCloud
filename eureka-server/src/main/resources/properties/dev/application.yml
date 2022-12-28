@@ -1,13 +1,6 @@
-spring:
-  profiles:
-    active: dev
-  rabbitmq:
-    virtualHost: ENC(o3Laa/S/4iemN1z+ZOz2kcudHG/VwtrUmPbdmIbuBzcKuOaCCLVq8o4nBVEKgvPu)
-    host: ENC(FwY/368+ZNd8vcmrW+DpmW1IeWgWl4NVfBfYeUR9GrkJe4i74sTm2T2n3e+ead1t8BfT+7UxNEvlwKzI59Cm3g==)
-    port: ENC(DKDAgwSEnMcWM1NFGYT7RbtlUOOVeeIKCaHs+nD1WD3KbOzh/pHQpa0dW2SHveeE)
-    username: ENC(ag9RRP0UNl7mga4wyeZpz4nvIBbmRQm8zTxxBHE5OXVrRXDcbyXscDz8bgEb6kkg)
-    password: ENC(5eYaqsS/dE9rKDPEMS2p9ZPRuICDM/pETw8nlgIg9q3g79oPhCchexDdtIcVLOmCxvbCQEgl+IjyMkCIHyzLLwXNIwAW1zkWw6ECsE1m0LQ=)
 eureka:
+  datacenter: default
+  environment: dev
   instance:
     preferIpAddress: false
     hostname: localhost
@@ -15,6 +8,6 @@ eureka:
     instanceId: ${eureka.instance.hostname}:${server.port}
   client:
     registerWithEureka: true
-    fetchRegistry: true
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
