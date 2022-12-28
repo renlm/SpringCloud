@@ -1,3 +1,17 @@
+spring:
+  data:
+    redis:
+      database: 6
+      host: '{cipher}AQBI1l5uTuz5P2C+B5yVyglh22dQ69WcGvyuBotNFsQOe5st4d4QVyMCdlj/WzY02jzQ0AedXyUVEXWRzhkjUWM7o4wfGwZiztKx0621anPzIBpiliZQVj4Gc5WzbTR54Pxy2LCnjgHjff4gzueLJc2GbRTtFjL8esiMMSqJBfdszuIdYlx1JfLDTCSMP9nJ8U4Y7WcolJcSkuo/cFWeYPKfz/vCDvaNCwnyxRMexGmA7L1LifIgKKn7lwXnFr0eb6AatqbJZ3UU2AbBjfePZMaaP7yeS7bt5Qyg6SeVuRo3minnnTE1KFdQHv0VEvqqlgcRr7rcJsQJEC8pO1mCP10Aae5FdaduXb2Zhy4BUaviQoSax9XPavYKXNLXBtDuOEY='
+      port: '{cipher}AQArf3e3kNjk8mYg+R+JZi6qntnJqsXDxnxleb43jy3LiFg//5PV58NHs44huCF4TockkrHvdXge0s44RTPwkXyjXZl6CkEVJii3vjl3DkRj3fwI4c41aRpWalRFaKstotdWghK7oYrIWK5pG93yXylbeorL47L67sd6d+eIRs+QrAeS5jCX/YirqXeLcrDUd26qkEilUjLUf5MmHh7WVleN679yQva7Zv1yiTVge2QOGf2GfaL/YuQQilM37h3hkxYa6leUPjY6j01yAAgZ6+6mLITx2BsmESpJEJnwBZGDl6ohcs/2V2YW1nsfGVqpm62V8jS4giTJewp/e4L8oqiW8msDHotYa07frtk3D5AdLlOfNcIGgfAmtCQVK4E56KM='
+      password: '{cipher}AQBg9MfU4gi5LJH5uf7unnDiJtdocGQvGu8qm70ALIQzCsTkXcQMb7rGkNc3lwORsOqhQQykeALZ34llcLto2cyClowat3kD1x0ZbS0e8btWT9Yd2PijapdVg8+7iLmlCUWNbD85DrCV8ufIij6Rki3WPFNJj21sTerb98knx1yU2j9HViRpBvHY5DU2VjPTguy/4XLwzdYDRVSmmf8l7Q/DKJwjdoZkqk9VEqmsvIjHw+FsayndQWn31soccACfriEkAUCgZZrOalI/idAQXDfMhw92ofSBkokmRoYxv/OyfOo5U1tpPufycWTqkHRp4cVxWXVu4CJebNR/YsRZSPYPVyoXpI+CmsQsfHNw5ZX7a6uiCWVFA1ng/YIZFjqk3aeknEFdPDE5rUjmh38Bx8QG+M+ePA3ee0cGSiElMrjCDg=='
+      timeout: 10s
+      lettuce:
+        pool:
+          maxActive: 256
+          maxWait: 2000ms
+          maxIdle: 10
+          minIdle: 5
 eureka:
   datacenter: cloud
   environment: product
