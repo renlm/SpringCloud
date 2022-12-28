@@ -3,11 +3,14 @@ package cn.renlm.springcloud.filter;
 import static org.springframework.security.core.context.SecurityContextHolder.getContext;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Collections;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import cn.hutool.core.io.IoUtil;
@@ -22,44 +25,48 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 /**
- * WebHook 认证
+ * WebHook 签名认证
  * 
  * @author Renlm
  *
  */
-@Slf4j
 @Component
 @AllArgsConstructor
 public class GithubSignAuthenticationFilter extends OncePerRequestFilter {
 
-	private static final String HEADERS_KEY = "X-Github-Event";
+	private static final String HEADER_KEY = "X-Github-Event";
 
-	private static final String HEADERS_VALUE = "push";
+	private static final String HEADER_VALUE = "push";
 
 	private final WebHookProperties webHookProperties;
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		HttpServletRequest requestWrapper = new RepeatableHttpServletRequest(request);
-		if (HEADERS_VALUE.equals(request.getHeader(HEADERS_KEY))) {
-			byte[] bytes = IoUtil.readBytes(requestWrapper.getInputStream());
-			String body = new String(bytes, request.getCharacterEncoding());
-			String sign = this.sign(body, webHookProperties.getSignSecret());
-			String signature = request.getHeader("X-Hub-Signature-256");
-			log.info("sign = {}", sign);
-			log.info("signature = {}", signature);
-			log.info("payload = {}", body);
-			if (StrUtil.equals(sign, signature)) {
-				Authentication token = new UsernamePasswordAuthenticationToken(HEADERS_KEY, HEADERS_VALUE,
-						Collections.emptySet());
-				getContext().setAuthentication(token);
+		if (HEADER_VALUE.equals(request.getHeader(HEADER_KEY))) {
+			Authentication authentication = getContext().getAuthentication();
+			boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
+			String hmacSHA256 = request.getHeader("X-Hub-Signature-256");
+			if (!isAuthenticated && StringUtils.hasText(hmacSHA256)) {
+				HttpServletRequest requestWrapper = new RepeatableHttpServletRequest(request);
+				byte[] bytes = IoUtil.readBytes(requestWrapper.getInputStream());
+				String body = new String(bytes, request.getCharacterEncoding());
+				String sign = this.sign(body, webHookProperties.getSignSecret());
+				if (StrUtil.equals(sign, hmacSHA256)) {
+					Collection<? extends GrantedAuthority> authorities = Collections.emptySet();
+					Authentication token = new UsernamePasswordAuthenticationToken(HEADER_KEY, HEADER_VALUE,
+							authorities);
+					getContext().setAuthentication(token);
+				}
+				filterChain.doFilter(requestWrapper, response);
+			} else {
+				filterChain.doFilter(request, response);
 			}
+		} else {
+			filterChain.doFilter(request, response);
 		}
-		filterChain.doFilter(requestWrapper, response);
 	}
 
 	/**

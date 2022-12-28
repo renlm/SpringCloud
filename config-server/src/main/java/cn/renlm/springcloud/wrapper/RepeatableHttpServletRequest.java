@@ -12,6 +12,12 @@ import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 
+/**
+ * 请求包装（实现Payload多次读取）
+ * 
+ * @author Renlm
+ *
+ */
 public class RepeatableHttpServletRequest extends HttpServletRequestWrapper {
 
 	private final byte[] bytes;

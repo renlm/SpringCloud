@@ -3,14 +3,18 @@ package cn.renlm.springcloud.filter;
 import static org.springframework.security.core.context.SecurityContextHolder.getContext;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Collections;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import cn.hutool.core.text.CharPool;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import cn.hutool.crypto.digest.HMac;
 import cn.hutool.crypto.digest.HmacAlgorithm;
@@ -22,7 +26,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 
 /**
- * WebHook 认证
+ * WebHook 签名认证
  * 
  * @author Renlm
  *
@@ -31,24 +35,26 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class GiteeSignAuthenticationFilter extends OncePerRequestFilter {
 
-	private static final String HEADERS_KEY = "x-git-oschina-event";
+	private static final String HEADER_KEY = "X-Git-Oschina-Event";
 
-	private static final String HEADERS_VALUE = "Push Hook";
+	private static final String HEADER_VALUE = "Push Hook";
 
 	private final WebHookProperties webHookProperties;
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		if (HEADERS_VALUE.equals(request.getHeader(HEADERS_KEY))) {
+		if (HEADER_VALUE.equals(request.getHeader(HEADER_KEY))) {
 			Authentication authentication = getContext().getAuthentication();
 			boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
-			String giteeToken = request.getHeader("X-Gitee-Token");
+			String hmacSHA256 = request.getHeader("X-Gitee-Token");
 			String giteeTimestamp = request.getHeader("X-Gitee-Timestamp");
-			if (!isAuthenticated && StringUtils.hasText(giteeToken) && StringUtils.hasText(giteeTimestamp)) {
-				if (giteeToken.equals(this.sign(giteeTimestamp, webHookProperties.getSignSecret()))) {
-					Authentication token = new UsernamePasswordAuthenticationToken(HEADERS_KEY, HEADERS_VALUE,
-							Collections.emptySet());
+			if (!isAuthenticated && StringUtils.hasText(hmacSHA256) && StringUtils.hasText(giteeTimestamp)) {
+				String sign = this.sign(giteeTimestamp, webHookProperties.getSignSecret());
+				if (StrUtil.equals(sign, hmacSHA256)) {
+					Collection<? extends GrantedAuthority> authorities = Collections.emptySet();
+					Authentication token = new UsernamePasswordAuthenticationToken(HEADER_KEY, HEADER_VALUE,
+							authorities);
 					getContext().setAuthentication(token);
 				}
 			}
@@ -64,7 +70,7 @@ public class GiteeSignAuthenticationFilter extends OncePerRequestFilter {
 	 * @return
 	 */
 	private String sign(String timestamp, String secret) {
-		String stringToSign = timestamp + "\n" + secret;
+		String stringToSign = timestamp + CharPool.LF + secret;
 		HMac hMac = DigestUtil.hmac(HmacAlgorithm.HmacSHA256, secret.getBytes());
 		return hMac.digestBase64(stringToSign, false);
 	}
