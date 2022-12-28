@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: prod
+  rabbitmq:
+    virtualHost: ENC(o3Laa/S/4iemN1z+ZOz2kcudHG/VwtrUmPbdmIbuBzcKuOaCCLVq8o4nBVEKgvPu)
+    host: ENC(/aox7OBjM9q36I8CMj7+T4GXDcGNEq93/lWnlPuh8fFvtdOSMcqV05rBkIUVVo+p)
+    port: ENC(j749FFhqAjgxaMuf/C6QCPL0j8uclMqRAvV3WqQOVTrQhka4vBq3AiOxV5Ik4jYc)
+    username: ENC(ag9RRP0UNl7mga4wyeZpz4nvIBbmRQm8zTxxBHE5OXVrRXDcbyXscDz8bgEb6kkg)
+    password: ENC(5eYaqsS/dE9rKDPEMS2p9ZPRuICDM/pETw8nlgIg9q3g79oPhCchexDdtIcVLOmCxvbCQEgl+IjyMkCIHyzLLwXNIwAW1zkWw6ECsE1m0LQ=)
+eureka:
+  instance:
+    preferIpAddress: false
+    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+    nonSecurePort: ${server.port}
+    instanceId: ${eureka.instance.hostname}:${eureka.instance.nonSecurePort}
+  client:
+    registerWithEureka: ${REGISTER_WITH_EUREKA:true}
+    fetchRegistry: ${FETCH_REGISTRY:true}
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER}

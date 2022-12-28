@@ -3,10 +3,3 @@ spring:
     name: eureka-server
   profiles:
     active: dev
-  cloud:
-    config:
-      failFast: true
-      name: eureka-server,redis,rabbitmq,logging
-      uri: ${CONFIG_URI:http://localhost:7000}
-      username: ${CONFIG_USERNAME:springCloud}
-      password: ${CONFIG_PASSWORD:123654}
