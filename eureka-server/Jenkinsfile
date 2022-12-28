@@ -9,9 +9,9 @@ pipeline {
 		rancherCredential = 'Rancher'
         aliyuncsCredential = 'Aliyuncs'
 		dockerRegistry = 'https://registry.cn-hangzhou.aliyuncs.com'
-    	projectDir = "${WORKSPACE}/eureka-server"
-		dockerImage = 'registry.cn-hangzhou.aliyuncs.com/rlm/eureka-server'
-		workloadUrl = '/project/c-m-5hjgrb22:p-jcjsv/workloads/statefulset:renlm:eurekaserver'
+    	projectDir = "${WORKSPACE}/config-server"
+		dockerImage = 'registry.cn-hangzhou.aliyuncs.com/rlm/config-server'
+		workloadUrl = '/project/c-m-5hjgrb22:p-jcjsv/workloads/statefulset:renlm:configserver'
     }
     stages {
         stage ('Maven Build') {
@@ -19,7 +19,8 @@ pipeline {
                 echo "Maven构建..."
                 dir("${projectDir}") { 
 	                script {
-		            	sh "mvn clean package -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
+	                	def profile = params.Profile == null ? 'prod' : params.Profile
+		            	sh "mvn clean package -P ${profile} -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
 	                }
                 }
             }
@@ -30,8 +31,7 @@ pipeline {
                 	echo "构建镜像..."
                 	dir("${projectDir}") {
 	                	docker.withRegistry("${dockerRegistry}", "${aliyuncsCredential}") {
-	                		def profile = params.Profile == null ? 'prod' : params.Profile
-	                        docker.build("${dockerImage}:${TAG}", "--build-arg SPRING_PROFILES_ACTIVE=${profile} -f ${projectDir}/Dockerfile .")
+	                        docker.build("${dockerImage}:${TAG}", "-f ${projectDir}/Dockerfile .")
 	                    }
                     }
                 }
