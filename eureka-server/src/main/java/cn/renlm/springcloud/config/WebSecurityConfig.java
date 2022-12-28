@@ -23,6 +23,7 @@ public class WebSecurityConfig {
 	public SecurityFilterChain securityWebFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
 		http.csrf().disable();
+		http.formLogin();
 		return http.build();
 	}
 
