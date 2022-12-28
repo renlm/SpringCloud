@@ -1,5 +1,8 @@
 server:
   port: 7001
+jasypt:
+  encryptor:
+    password: ${JASYPT_ENCRYPTOR_PASSWORD:123654}
 logging:
   level:
     root: info
@@ -12,3 +15,7 @@ logging:
 spring:
   application:
     name: eureka-server
+  security:
+    user:
+      name: ${SECURITY_NAME:springCloud}
+      password: ${SECURITY_PASSWORD:123654}
