@@ -25,8 +25,8 @@ public class WebSecurityConfig {
 	public SecurityFilterChain securityWebFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
 		http.httpBasic(withDefaults());
-		http.formLogin();
 		http.csrf().disable();
+		http.formLogin();
 		return http.build();
 	}
 
