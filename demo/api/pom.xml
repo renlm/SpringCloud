@@ -9,8 +9,8 @@
 		<version>0.0.1</version>
 	</parent>
 
-	<artifactId>api</artifactId>
-	<name>API</name>
+	<artifactId>demo-api</artifactId>
+	<name>DemoAPI</name>
 	<description>公共接口</description>
 
 	<dependencies>

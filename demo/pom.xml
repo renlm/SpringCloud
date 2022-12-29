@@ -14,8 +14,8 @@
 	<description>演示项目</description>
 
 	<modules>
-		<module>api</module>
-		<module>impl</module>
+		<module>demo-api</module>
+		<module>demo-web</module>
 	</modules>
 
 </project>
