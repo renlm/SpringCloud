@@ -13,7 +13,7 @@ encrypt:
     secret: ${KEY_STORE_SECRET:keypass}
 logging:
   level:
-    root: info
+    root: INFO
   file:
     name: /opt/log/configServer.log
   logback:
