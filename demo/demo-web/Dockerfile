@@ -1,5 +1,5 @@
 FROM openjdk:17-jdk-alpine
-ADD target/demo-0.0.1.jar app.jar
+ADD target/demo-web-0.0.1.jar app.jar
 VOLUME /tmp
 RUN touch /app.jar
 EXPOSE 8001
