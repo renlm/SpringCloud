@@ -1,3 +1,6 @@
+spring:
+  profiles:
+    active: dev
 eureka:
   datacenter: default
   environment: dev
