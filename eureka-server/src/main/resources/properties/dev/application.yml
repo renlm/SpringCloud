@@ -1,19 +1,3 @@
-spring:
-  profiles:
-    active: dev
-  data:
-    redis:
-      database: 3
-      host: ENC(3NYvpEBPZ2MTsIhCrrmqgVIZ/6y7Y8d+4d8Z55BSRHYo4Q9+lCE5IkvEfGtSyMPd)
-      port: ENC(LvO70pBDMsKKq7JHPCbpDCtcAVy9VpxPQ9T6Y7Dsyqwi8/DhDqZ6QUgQlxKCDjCN)
-      password: ENC(1UNH9DsQnOX+6JyP88vX3YTvmqYKMaaYgUADgMRDuPgJAm0cwcqb2+8vtqu5NW4ZB5unXl1w4GJOJSXPxgFhqLzooLu0dSR0lr4JllubMAM=)
-      timeout: 10s
-      lettuce:
-        pool:
-          maxActive: 256
-          maxWait: 2000ms
-          maxIdle: 10
-          minIdle: 5
 eureka:
   datacenter: default
   environment: dev
@@ -26,4 +10,4 @@ eureka:
     registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka

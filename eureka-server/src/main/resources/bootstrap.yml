@@ -1,12 +1,8 @@
 server:
   port: 7001
-  servlet:
-    session:
-      cookie:
-        name: EUREKA-SERVER
-jasypt:
-  encryptor:
-    password: ${JASYPT_ENCRYPTOR_PASSWORD:123654}
+spring:
+  application:
+    name: eureka-server
 logging:
   level:
     root: TRACE
@@ -16,10 +12,3 @@ logging:
     rollingpolicy:
       maxFileSize: 512MB
       maxHistory: 30
-spring:
-  application:
-    name: eureka-server
-  security:
-    user:
-      name: ${SECURITY_NAME:springCloud}
-      password: ${SECURITY_PASSWORD:123654}
