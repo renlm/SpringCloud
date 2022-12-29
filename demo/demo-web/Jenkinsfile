@@ -17,7 +17,7 @@ pipeline {
         stage ('Maven Build') {
             steps {
                 echo "Maven构建..."
-                dir("${projectDir}") { 
+                dir("${WORKSPACE}") { 
 	                script {
 		            	sh "mvn clean package -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
 	                }
