@@ -16,7 +16,7 @@ import cn.renlm.springcloud.response.Result;
  * @author Renlm
  *
  */
-@FeignClient(contextId = DEMO_SERVICE, path = "/geo")
+@FeignClient(contextId = "remoteGeoService", name = DEMO_SERVICE, path = "/geo")
 public interface RemoteGeoService {
 
 	/**
