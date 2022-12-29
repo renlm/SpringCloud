@@ -1,5 +1,7 @@
 package cn.renlm.springcloud.demo.feign;
 
+import static cn.renlm.springcloud.constant.ServiceNameConstants.DEMO_SERVICE;
+
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -14,7 +16,7 @@ import cn.renlm.springcloud.response.Result;
  * @author Renlm
  *
  */
-@FeignClient(contextId = "remoteGeoService", path = "/geo", value = "demo-api")
+@FeignClient(contextId = DEMO_SERVICE, path = "/geo")
 public interface RemoteGeoService {
 
 	/**
@@ -22,7 +24,7 @@ public interface RemoteGeoService {
 	 * 
 	 * @return
 	 */
-	@GetMapping(value = "/getChinese", headers = "from=Y")
+	@GetMapping(value = "/getChinese")
 	Result<List<GeoDto>> getChinese();
 
 }
