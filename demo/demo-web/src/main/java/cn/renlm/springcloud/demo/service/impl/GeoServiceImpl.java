@@ -3,6 +3,8 @@ package cn.renlm.springcloud.demo.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import cn.renlm.springcloud.demo.dto.GeoDto;
 import cn.renlm.springcloud.demo.service.GeoService;
 
@@ -12,6 +14,7 @@ import cn.renlm.springcloud.demo.service.GeoService;
  * @author Renlm
  *
  */
+@Service
 public class GeoServiceImpl implements GeoService {
 
 	@Override
