@@ -17,7 +17,6 @@
 		<dependency>
 			<groupId>cn.renlm</groupId>
 			<artifactId>common</artifactId>
-			<version>0.0.1</version>
 		</dependency>
 
 		<dependency>
