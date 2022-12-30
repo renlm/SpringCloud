@@ -29,7 +29,7 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/renlm/config-repo.git
+          uri: git@github.com:renlm/ConfigRepo.git
           forcePull: true
           cloneOnStart: true
           defaultLabel: master
