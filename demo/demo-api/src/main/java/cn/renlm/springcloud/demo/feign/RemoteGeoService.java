@@ -11,7 +11,7 @@ import cn.renlm.springcloud.demo.dto.GeoDto;
 import cn.renlm.springcloud.response.Result;
 
 /**
- * 行政区划
+ * 地图坐标
  * 
  * @author Renlm
  *
@@ -20,7 +20,7 @@ import cn.renlm.springcloud.response.Result;
 public interface RemoteGeoService {
 
 	/**
-	 * 获取中国行政区划
+	 * 获取中国省市地图坐标数据
 	 * 
 	 * @return
 	 */

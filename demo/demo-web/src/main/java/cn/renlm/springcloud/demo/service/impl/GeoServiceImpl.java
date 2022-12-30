@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.http.HttpRequest;
@@ -15,7 +14,6 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.renlm.springcloud.demo.dto.GeoDto;
 import cn.renlm.springcloud.demo.service.GeoService;
-import jakarta.annotation.Resource;
 
 /**
  * 行政区划
@@ -26,13 +24,11 @@ import jakarta.annotation.Resource;
 @Service
 public class GeoServiceImpl implements GeoService {
 
-	@Resource
-	private RestTemplate restTemplate;
-
 	@Override
 	public List<GeoDto> getChinese() {
+		String uri = "https://geo.datav.aliyun.com/areas_v3/bound/";
 		List<GeoDto> list = new ArrayList<>();
-		HttpRequest httpRequest = HttpUtil.createGet("https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json");
+		HttpRequest httpRequest = HttpUtil.createGet(uri + "100000_full.json");
 		HttpResponse httpResponse = httpRequest.execute();
 		if (httpResponse.isOk()) {
 			String body = httpResponse.body();
@@ -53,8 +49,7 @@ public class GeoServiceImpl implements GeoService {
 					level1.setCenter(center);
 					level1.setCentroid(centroid);
 					List<GeoDto> children = CollUtil.newArrayList();
-					HttpRequest httpRequest2 = HttpUtil
-							.createGet("https://geo.datav.aliyun.com/areas_v3/bound/" + adcode + "_full.json");
+					HttpRequest httpRequest2 = HttpUtil.createGet(uri + adcode + "_full.json");
 					HttpResponse httpResponse2 = httpRequest2.execute();
 					if (httpResponse2.isOk()) {
 						String body2 = httpResponse2.body();

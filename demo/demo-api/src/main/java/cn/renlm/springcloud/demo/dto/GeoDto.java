@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 行政区划
+ * 地图坐标
  * 
  * @author Renlm
  *
