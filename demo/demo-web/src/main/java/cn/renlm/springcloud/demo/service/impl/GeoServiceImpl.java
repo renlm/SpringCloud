@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.github.benmanes.caffeine.cache.Cache;
+
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
@@ -14,6 +16,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.renlm.springcloud.demo.dto.GeoDto;
 import cn.renlm.springcloud.demo.service.GeoService;
+import jakarta.annotation.Resource;
 
 /**
  * 行政区划
@@ -24,9 +27,16 @@ import cn.renlm.springcloud.demo.service.GeoService;
 @Service
 public class GeoServiceImpl implements GeoService {
 
+	@Resource
+	private Cache<String, List<GeoDto>> caffeineCache;
+
 	@Override
 	public List<GeoDto> getChinese() {
 		String uri = "https://geo.datav.aliyun.com/areas_v3/bound/";
+		List<GeoDto> cached = caffeineCache.getIfPresent(uri);
+		if (CollUtil.isNotEmpty(cached)) {
+			return cached;
+		}
 		List<GeoDto> list = new ArrayList<>();
 		HttpRequest httpRequest = HttpUtil.createGet(uri + "100000_full.json");
 		HttpResponse httpResponse = httpRequest.execute();
@@ -72,6 +82,7 @@ public class GeoServiceImpl implements GeoService {
 					list.add(level1);
 				}
 			}
+			caffeineCache.put(uri, list);
 		}
 		return list;
 	}

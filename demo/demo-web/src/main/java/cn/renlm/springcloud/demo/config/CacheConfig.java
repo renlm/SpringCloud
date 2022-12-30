@@ -1,14 +1,11 @@
 package cn.renlm.springcloud.demo.config;
 
-import java.time.Duration;
-import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.caffeine.CaffeineCache;
-import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 
 /**
@@ -20,37 +17,15 @@ import com.github.benmanes.caffeine.cache.Caffeine;
 @Configuration(proxyBeanMethods = false)
 public class CacheConfig {
 
-	public enum CacheEnum {
-
-		DEFAULT_CACHE(300, 10000, 200);
-
-		private int second;
-		private long maxSize;
-		private int initSize;
-
-		CacheEnum(int second, long maxSize, int initSize) {
-			this.second = second;
-			this.maxSize = maxSize;
-			this.initSize = initSize;
-		}
-
-	}
-
-	@Bean("caffeineCacheManager")
-	public CacheManager cacheManager() {
-		SimpleCacheManager cacheManager = new SimpleCacheManager();
-		ArrayList<CaffeineCache> caffeineCaches = new ArrayList<>();
-		for (CacheEnum cacheEnum : CacheEnum.values()) {
-			caffeineCaches.add(new CaffeineCache(cacheEnum.name(),
-					Caffeine.newBuilder()
-						.expireAfterWrite(Duration.ofSeconds(cacheEnum.second))
-						.initialCapacity(cacheEnum.initSize)
-						.maximumSize(cacheEnum.maxSize)
-						.build()
-				));
-		}
-		cacheManager.setCaches(caffeineCaches);
-		return cacheManager;
+	@Bean
+	public Cache<String, ?> caffeineCache() {
+		return Caffeine.newBuilder()
+				// 设置最后一次写入或访问后经过固定时间过期
+				.expireAfterWrite(300, TimeUnit.SECONDS)
+				// 初始的缓存空间大小
+				.initialCapacity(100)
+				// 缓存的最大条数
+				.maximumSize(1000).build();
 	}
 
 }
