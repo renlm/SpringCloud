@@ -68,13 +68,13 @@
 			<dependency>
 				<groupId>cn.renlm</groupId>
 				<artifactId>common</artifactId>
-				<version>0.0.1</version>
+				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>cn.renlm</groupId>
 				<artifactId>demo-api</artifactId>
-				<version>0.0.1</version>
+				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
