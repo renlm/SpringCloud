@@ -1,5 +1,3 @@
-server:
-  port: 7000
 webhook:
   signSecret: ${WEBHOOK_SIGN_SECRET:123654}
 jasypt:

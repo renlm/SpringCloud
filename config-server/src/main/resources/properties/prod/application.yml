@@ -1,3 +1,5 @@
+server:
+  port: 80
 spring:
   profiles:
     active: prod
@@ -9,8 +11,8 @@ spring:
     password: ENC(5eYaqsS/dE9rKDPEMS2p9ZPRuICDM/pETw8nlgIg9q3g79oPhCchexDdtIcVLOmCxvbCQEgl+IjyMkCIHyzLLwXNIwAW1zkWw6ECsE1m0LQ=)
 eureka:
   instance:
-    preferIpAddress: false
-    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+    preferIpAddress: true
+    hostname: ${HOSTNAME:${spring.cloud.client.ip-address}}
     nonSecurePort: ${server.port}
     instanceId: ${eureka.instance.hostname}:${eureka.instance.nonSecurePort}
   client:
