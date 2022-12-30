@@ -1,6 +1,7 @@
 package cn.renlm.springcloud.demo.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,5 +42,10 @@ public class GeoDto implements Serializable {
 	 * 形心
 	 */
 	private double[] centroid;
+
+	/**
+	 * 子级
+	 */
+	private List<GeoDto> children;
 
 }

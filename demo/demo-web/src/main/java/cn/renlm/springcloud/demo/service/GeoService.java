@@ -13,7 +13,7 @@ import cn.renlm.springcloud.demo.dto.GeoDto;
 public interface GeoService {
 
 	/**
-	 * 获取中国行政区划
+	 * 获取中国省市地图坐标数据
 	 * 
 	 * @return
 	 */
