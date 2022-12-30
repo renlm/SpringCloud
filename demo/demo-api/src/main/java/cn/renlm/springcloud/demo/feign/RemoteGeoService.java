@@ -16,7 +16,7 @@ import cn.renlm.springcloud.response.Result;
  * @author Renlm
  *
  */
-@FeignClient(contextId = "remoteGeoService", name = DEMO_SERVICE, path = "/geo")
+@FeignClient(contextId = "remoteGeoService", name = DEMO_SERVICE)
 public interface RemoteGeoService {
 
 	/**
@@ -24,7 +24,7 @@ public interface RemoteGeoService {
 	 * 
 	 * @return
 	 */
-	@GetMapping(value = "/getChinese")
+	@GetMapping(value = "/geo/getChinese")
 	Result<List<GeoDto>> getChinese();
 
 }
