@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generator dsName="pg"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://renlm.cn/schemas/MyGenerator.xsd">
+
+	<url>jdbc:mysql://mysql:3306/db</url>
+	<username>username</username>
+	<password>password</password>
+
+	<module name="demo" package="cn.renlm.springcloud">
+		<table schema="public" author="Renlm" name="tx1" />
+	</module>
+</generator>
