@@ -18,6 +18,9 @@
 		<!-- 版本管理 -->
 		<spring-boot.version>3.0.0</spring-boot.version>
 		<spring-cloud.version>2022.0.0</spring-cloud.version>
+		<mybatis-plus-boot-starter.version>3.4.3.4</mybatis-plus-boot-starter.version>
+		<dynamic-datasource-spring-boot-starter.version>3.5.1</dynamic-datasource-spring-boot-starter.version>
+		<mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
 		<seata-spring-boot-starter.version>1.6.1</seata-spring-boot-starter.version>
 		<jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
 		<hutool.version>5.8.11</hutool.version>
@@ -67,6 +70,24 @@
 				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus-boot-starter.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+				<version>${dynamic-datasource-spring-boot-starter.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-generator</artifactId>
+				<version>${mybatis-plus-generator.version}</version>
 			</dependency>
 
 			<dependency>
