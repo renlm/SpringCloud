@@ -21,11 +21,11 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/tx")
 public class TxController {
 
-	private ITxService iTxService;
+	private final ITxService iTxService;
 
-	private ITx1Service iTx1Service;
+	private final ITx1Service iTx1Service;
 
-	private ITx2Service iTx2Service;
+	private final ITx2Service iTx2Service;
 
 	/**
 	 * 本地事物测试
