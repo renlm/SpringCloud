@@ -13,4 +13,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITx1Service extends IService<Tx1> {
 
+	/**
+	 * 测试1
+	 * 
+	 * @param n
+	 */
+	void addTx1(int n);
+
 }
