@@ -40,7 +40,7 @@ public class TxController {
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return Result.error();
+			return Result.error(e.getMessage());
 		}
 	}
 
@@ -57,7 +57,7 @@ public class TxController {
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return Result.error();
+			return Result.error(e.getMessage());
 		}
 	}
 
