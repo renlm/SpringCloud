@@ -1,0 +1,8 @@
+-- 分布式事物测试表1
+DROP TABLE IF EXISTS `tx1`;
+CREATE TABLE `tx1`(
+    `id`            			BIGINT      	PRIMARY KEY 	AUTO_INCREMENT	COMMENT '主键ID',
+    `m`            				INT				NOT NULL						COMMENT '数字',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL COMMENT '创建时间',
+    `updated_at` TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '分布式事物测试表1';
