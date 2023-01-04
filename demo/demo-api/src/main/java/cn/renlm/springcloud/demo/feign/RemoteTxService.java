@@ -4,6 +4,7 @@ import static cn.renlm.springcloud.constant.ServiceNameConstants.DEMO_SERVICE;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cn.renlm.springcloud.response.Result;
 
@@ -22,7 +23,7 @@ public interface RemoteTxService {
 	 * @param n
 	 */
 	@PostMapping(value = "/tx/addTx1")
-	Result<String> addTx1(int n);
+	Result<String> addTx1(@RequestParam int n);
 
 	/**
 	 * 分布式事物测试表2
@@ -30,6 +31,6 @@ public interface RemoteTxService {
 	 * @param n
 	 */
 	@PostMapping(value = "/tx/addTx2")
-	Result<String> addTx2(int n);
+	Result<String> addTx2(@RequestParam int n);
 
 }
