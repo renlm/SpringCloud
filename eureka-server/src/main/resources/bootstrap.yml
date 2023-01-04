@@ -10,3 +10,13 @@ logging:
     rollingpolicy:
       maxFileSize: 512MB
       maxHistory: 30
+management:
+  server:
+    port: 9000
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
