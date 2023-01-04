@@ -36,7 +36,10 @@ public class SeataXIDConfig {
 
 			@Override
 			public void apply(RequestTemplate requestTemplate) {
-				requestTemplate.header(DEFAULT_LOAD_BALANCE, RootContext.getXID());
+				String xid = RootContext.getXID();
+				if (StringUtils.isNotBlank(xid)) {
+					requestTemplate.header(DEFAULT_LOAD_BALANCE, xid);
+				}
 			}
 
 		};
