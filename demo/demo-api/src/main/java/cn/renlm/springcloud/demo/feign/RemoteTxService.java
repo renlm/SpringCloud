@@ -23,7 +23,7 @@ public interface RemoteTxService {
 	 * @param n
 	 */
 	@PostMapping(value = "/tx/addTx1")
-	Result<String> addTx1(@RequestParam int n);
+	Result<String> addTx1(@RequestParam("n") int n);
 
 	/**
 	 * 分布式事物测试表2
@@ -31,6 +31,6 @@ public interface RemoteTxService {
 	 * @param n
 	 */
 	@PostMapping(value = "/tx/addTx2")
-	Result<String> addTx2(@RequestParam int n);
+	Result<String> addTx2(@RequestParam("n") int n);
 
 }
