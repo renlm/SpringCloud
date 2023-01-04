@@ -1,6 +1,7 @@
 package cn.renlm.springcloud.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -67,7 +68,7 @@ public class TxController {
 	 * @param n
 	 * @return
 	 */
-	@GetMapping("/addTx1")
+	@PostMapping("/addTx1")
 	public Result<String> addTx1(int n) {
 		try {
 			iTx1Service.addTx1(n);
@@ -84,7 +85,7 @@ public class TxController {
 	 * @param n
 	 * @return
 	 */
-	@GetMapping("/addTx2")
+	@PostMapping("/addTx2")
 	public Result<String> addTx2(int n) {
 		try {
 			iTx2Service.addTx2(n);
