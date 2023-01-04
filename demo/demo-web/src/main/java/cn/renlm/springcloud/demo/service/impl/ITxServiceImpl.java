@@ -36,12 +36,12 @@ public class ITxServiceImpl implements ITxService {
 	public void addLocal(int n) {
 		// Tx1
 		Tx1 tx1 = iTx1Service.getById(1);
-		tx1.setM(tx1.getM() - n);
+		tx1.setM(tx1.getM() + n);
 		tx1.setUpdatedAt(new Date());
 		iTx1Service.updateById(tx1);
 		// Tx2
 		Tx2 tx2 = iTx2Service.getById(1);
-		tx2.setM(tx2.getM() - n);
+		tx2.setM(tx2.getM() + n);
 		tx2.setUpdatedAt(new Date());
 		iTx2Service.updateById(tx2);
 		// 异常

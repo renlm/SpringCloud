@@ -26,7 +26,7 @@ public class Tx1ServiceImpl extends ServiceImpl<Tx1Mapper, Tx1> implements ITx1S
 	@Transactional
 	public void addTx1(int n) {
 		Tx1 tx1 = this.getById(1);
-		tx1.setM(tx1.getM() - n);
+		tx1.setM(tx1.getM() + n);
 		tx1.setUpdatedAt(new Date());
 		this.updateById(tx1);
 	}
