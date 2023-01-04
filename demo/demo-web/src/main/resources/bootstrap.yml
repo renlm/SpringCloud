@@ -6,7 +6,7 @@ spring:
   cloud:
     config:
       failFast: true
-      name: demo,seata,eureka-client,rabbitmq,logging
+      name: demo,seata,eureka-client,rabbitmq,logging,prometheus
       uri: ${CONFIG_URI:http://localhost:7000}
       username: ${CONFIG_USERNAME:springCloud}
       password: ${CONFIG_PASSWORD:123654}
