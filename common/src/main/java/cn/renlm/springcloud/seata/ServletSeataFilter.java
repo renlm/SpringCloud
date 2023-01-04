@@ -4,6 +4,7 @@ import static io.seata.common.DefaultValues.DEFAULT_LOAD_BALANCE;
 
 import java.io.IOException;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Configuration;
 
 import io.seata.common.util.StringUtils;
@@ -22,6 +23,7 @@ import jakarta.servlet.http.HttpServletRequest;
  *
  */
 @Configuration(proxyBeanMethods = false)
+@ConditionalOnClass(value = { Filter.class, RootContext.class })
 public class ServletSeataFilter implements Filter {
 
 	@Override
