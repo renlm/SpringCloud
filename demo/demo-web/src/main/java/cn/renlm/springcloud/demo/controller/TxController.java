@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.renlm.plugins.MyResponse.Result;
 import cn.renlm.springcloud.demo.service.ITx1Service;
 import cn.renlm.springcloud.demo.service.ITx2Service;
 import cn.renlm.springcloud.demo.service.ITxService;
-import cn.renlm.springcloud.response.Result;
 import lombok.RequiredArgsConstructor;
 
 /**

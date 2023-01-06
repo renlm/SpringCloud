@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cn.renlm.springcloud.response.Result;
+import cn.renlm.plugins.MyResponse.Result;
 
 /**
  * 分布式事物测试

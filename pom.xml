@@ -23,7 +23,7 @@
 		<mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
 		<seata-spring-boot-starter.version>1.6.1</seata-spring-boot-starter.version>
 		<jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
-		<cn.renlm.plugins.version>2.5.9</cn.renlm.plugins.version>
+		<cn.renlm.plugins.version>2.6.2</cn.renlm.plugins.version>
 		<hutool.version>5.8.11</hutool.version>
 		<bcpkix-jdk15to18.version>1.72</bcpkix-jdk15to18.version>
 	</properties>
@@ -113,6 +113,18 @@
 				<groupId>cn.renlm</groupId>
 				<artifactId>demo-api</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.renlm.plugins</groupId>
+				<artifactId>MyUtil</artifactId>
+				<version>${cn.renlm.plugins.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.renlm.plugins</groupId>
+				<artifactId>MyExcel</artifactId>
+				<version>${cn.renlm.plugins.version}</version>
 			</dependency>
 
 			<dependency>

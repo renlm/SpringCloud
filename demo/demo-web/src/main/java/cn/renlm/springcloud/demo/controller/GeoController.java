@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.renlm.plugins.MyResponse.Result;
 import cn.renlm.springcloud.demo.dto.GeoDto;
 import cn.renlm.springcloud.demo.feign.RemoteGeoService;
 import cn.renlm.springcloud.demo.service.GeoService;
-import cn.renlm.springcloud.response.Result;
 import lombok.RequiredArgsConstructor;
 
 /**
