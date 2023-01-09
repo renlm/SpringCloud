@@ -23,9 +23,7 @@
 		<mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
 		<seata-spring-boot-starter.version>1.6.1</seata-spring-boot-starter.version>
 		<jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
-		<cn.renlm.plugins.version>2.6.2</cn.renlm.plugins.version>
-		<hutool.version>5.8.11</hutool.version>
-		<bcpkix-jdk15to18.version>1.72</bcpkix-jdk15to18.version>
+		<cn.renlm.plugins.version>2.6.4</cn.renlm.plugins.version>
 	</properties>
 
 	<modules>
@@ -131,30 +129,6 @@
 				<groupId>cn.renlm.plugins</groupId>
 				<artifactId>MyGenerator</artifactId>
 				<version>${cn.renlm.plugins.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>cn.hutool</groupId>
-				<artifactId>hutool-http</artifactId>
-				<version>${hutool.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>cn.hutool</groupId>
-				<artifactId>hutool-json</artifactId>
-				<version>${hutool.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>cn.hutool</groupId>
-				<artifactId>hutool-crypto</artifactId>
-				<version>${hutool.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcpkix-jdk15to18</artifactId>
-				<version>${bcpkix-jdk15to18.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
