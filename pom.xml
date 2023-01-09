@@ -23,7 +23,7 @@
 		<mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
 		<seata-spring-boot-starter.version>1.6.1</seata-spring-boot-starter.version>
 		<jasypt-spring-boot-starter.version>3.0.5</jasypt-spring-boot-starter.version>
-		<cn.renlm.plugins.version>2.6.4</cn.renlm.plugins.version>
+		<cn.renlm.plugins.version>2.6.5</cn.renlm.plugins.version>
 	</properties>
 
 	<modules>
