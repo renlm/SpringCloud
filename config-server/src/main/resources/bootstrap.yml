@@ -20,7 +20,7 @@ logging:
       maxHistory: 30
 management:
   server:
-    port: 9000
+    port: 9001
   endpoints:
     web:
       exposure:
