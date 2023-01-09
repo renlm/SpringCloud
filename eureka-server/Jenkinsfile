@@ -11,7 +11,7 @@ pipeline {
 		dockerRegistry = 'https://registry.cn-hangzhou.aliyuncs.com'
     	projectDir = "${WORKSPACE}/eureka-server"
 		dockerImage = 'registry.cn-hangzhou.aliyuncs.com/rlm/eureka-server'
-		workloadUrl = '/project/c-m-5hjgrb22:p-jcjsv/workloads/statefulset:renlm:eurekaserver'
+		workloadUrl = '/project/c-m-6gmtml5x:p-nw76n/workloads/statefulset:renlm:eurekaserver'
     }
     stages {
         stage ('Maven Build') {
