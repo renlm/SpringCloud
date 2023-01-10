@@ -14,7 +14,7 @@
 	<description>注册中心</description>
 	
 	<properties>
-		<spring-native.version>0.10.5</spring-native.version>
+		<spring-native.version>0.12.1</spring-native.version>
 		<native-buildtools.version>0.9.19</native-buildtools.version>
 		<!-- Customize Spring Boot classifier, useful in order to avoid a clash between Spring Boot repackaging and native-image-maven-plugin -->
 		<repackage.classifier/>
@@ -122,12 +122,6 @@
 					<removeSpelSupport>true</removeSpelSupport>
 				</configuration>
 				<executions>
-					<execution>
-						<id>test-generate</id>
-						<goals>
-							<goal>test-generate</goal>
-						</goals>
-					</execution>
 					<execution>
 						<id>generate</id>
 						<goals>
