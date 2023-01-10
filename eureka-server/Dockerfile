@@ -1,6 +1,6 @@
 FROM registry.cn-hangzhou.aliyuncs.com/rlm/graalvm-ce:ol7-java17-22.3.0-b2
 
-ADD . /build
+ADD ../. /build
 WORKDIR /build/eureka-server
 
 RUN pwd
