@@ -63,6 +63,7 @@
 						<version>${native-maven-plugin.version}</version>
 						<configuration>
 							<imageName>${project.name}</imageName>
+							<mainClass>cn.renlm.springcloud.EurekaServerApplication</mainClass>
 							<buildArgs>
 					    		--no-fallback
 								--initialize-at-build-time=org.springframework.util.unit.DataSize
