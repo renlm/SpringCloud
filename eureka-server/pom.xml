@@ -56,7 +56,6 @@
 				<profiles.active>properties/prod</profiles.active>
 			</properties>
 			<build>
-				<finalName>${project.name}</finalName>
 				<plugins>
 					<plugin>
 						<groupId>org.springframework.boot</groupId>
@@ -82,6 +81,7 @@
 						<groupId>org.graalvm.buildtools</groupId>
 						<artifactId>native-maven-plugin</artifactId>
 						<configuration>
+							<imageName>${project.name}</imageName>
 							<classesDirectory>${project.build.outputDirectory}</classesDirectory>
 							<metadataRepository>
 								<enabled>true</enabled>
