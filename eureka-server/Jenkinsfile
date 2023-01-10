@@ -9,7 +9,7 @@ pipeline {
 		rancherCredential = 'Rancher'
         aliyuncsCredential = 'Aliyuncs'
 		dockerRegistry = 'https://registry.cn-hangzhou.aliyuncs.com'
-    	projectDir = "${WORKSPACE}"
+    	projectDir = "${WORKSPACE}/eureka-server"
 		dockerImage = 'registry.cn-hangzhou.aliyuncs.com/rlm/eureka-server'
 		workloadUrl = '/project/c-m-6gmtml5x:p-nw76n/workloads/statefulset:renlm:eurekaserver'
     }
