@@ -65,6 +65,9 @@
 			    <groupId>org.graalvm.buildtools</groupId>
 			    <artifactId>native-maven-plugin</artifactId>
 			    <version>${native-maven-plugin.version}</version>
+			    <configuration>
+			    	<mainClass>cn.renlm.springcloud.EurekaServerApplication</mainClass>
+			    </configuration>
 			</plugin>
 		</plugins>
 		<resources>
