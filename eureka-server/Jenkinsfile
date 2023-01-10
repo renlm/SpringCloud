@@ -14,17 +14,6 @@ pipeline {
 		workloadUrl = '/project/c-m-6gmtml5x:p-nw76n/workloads/statefulset:renlm:eurekaserver'
     }
     stages {
-        stage ('Maven Build') {
-            steps {
-                echo "Maven构建..."
-                dir("${projectDir}") { 
-	                script {
-	                	def profile = params.Profile == null ? 'prod' : params.Profile
-		            	sh "mvn clean package -P ${profile} -T 1C -Dmaven.test.skip=true -Dmaven.compile.fork=true"
-	                }
-                }
-            }
-        }
         stage('Docker Build') {
             steps {
                 script {
