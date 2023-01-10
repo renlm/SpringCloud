@@ -67,7 +67,14 @@
 						<artifactId>native-image-maven-plugin</artifactId>
 						<version>${native-image-maven-plugin.version}</version>
 						<configuration>
-							<imageName>${project.name}</imageName>
+							<!-- imageName用于设置生成的二进制文件名称 -->
+		                    <imageName>${project.name}</imageName>
+		                    <!-- mainClass用于指定main方法类路径 -->
+		                    <mainClass>cn.renlm.springcloud.EurekaServerApplication</mainClass>
+		                    <!-- native image 编译参数文档：https://docs.oracle.com/en/graalvm/enterprise/20/docs/reference-manual/native-image/NativeImageMavenPlugin/ -->
+		                    <buildArgs>
+		                        --no-fallback
+		                    </buildArgs>
 						</configuration>
 						<executions>
 							<execution>
