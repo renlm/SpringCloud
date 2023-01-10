@@ -82,6 +82,7 @@
 						<artifactId>native-maven-plugin</artifactId>
 						<configuration>
 							<imageName>${project.name}</imageName>
+							<classesDirectory>${project.build.outputDirectory}</classesDirectory>
 							<metadataRepository>
 								<enabled>true</enabled>
 							</metadataRepository>
