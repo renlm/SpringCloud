@@ -44,7 +44,7 @@ pipeline {
                     docker.withRegistry("${dockerRegistry}", "${aliyuncsCredential}") {
                         docker.image("${dockerImage}:${TAG}").push()
                         docker.image("${dockerImage}:${TAG}").push("latest")
-                        sh "docker rmi \$(docker images -q ${dockerImage})"
+                        sh "docker rmi --force \$(docker images -q ${dockerImage})"
                     }
                 }
             }
