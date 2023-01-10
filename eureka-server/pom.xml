@@ -87,6 +87,7 @@
 					<plugin>
 			            <groupId>org.springframework.experimental</groupId>
 			            <artifactId>spring-aot-maven-plugin</artifactId>
+			            <version>0.12.2</version>
 			            <executions>
 			                <execution>
 			                    <id>generate</id>
