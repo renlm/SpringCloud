@@ -77,6 +77,7 @@
 						<artifactId>native-maven-plugin</artifactId>
 						<configuration>
 							<imageName>${project.name}</imageName>
+							<mainClass>cn.renlm.springcloud.EurekaServerApplication</mainClass>
 							<classesDirectory>${project.build.outputDirectory}</classesDirectory>
 							<metadataRepository>
 								<enabled>true</enabled>
