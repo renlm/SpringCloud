@@ -18,8 +18,7 @@
 		<!-- 版本管理 -->
 		<spring-boot.version>3.0.0</spring-boot.version>
 		<spring-cloud.version>2022.0.0</spring-cloud.version>
-		<graal-sdk.version>22.3.0</graal-sdk.version>
-		<native-image-maven-plugin.version>21.2.0</native-image-maven-plugin.version>
+		<native-maven-plugin.version>0.9.19</native-maven-plugin.version>
 		<mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
 		<dynamic-datasource-spring-boot-starter.version>3.6.1</dynamic-datasource-spring-boot-starter.version>
 		<mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
