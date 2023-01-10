@@ -20,14 +20,10 @@ RUN native-image --version
 
 RUN source "$HOME/.sdkman/bin/sdkman-init.sh" && mvn -B clean package -P native --no-transfer-progress
 
-
-# We use a Docker multi-stage build here in order that we only take the compiled native Spring Boot App from the first build container
 FROM oraclelinux:7-slim
 
-MAINTAINER Jonas Hecht
+MAINTAINER Renlm
 
-# Add Spring Boot Native app spring-boot-graal to Container
-COPY --from=0 "/build/target/spring-boot-graal" spring-boot-graal
+COPY --from=0 "/build/target/EurekaServer" EurekaServer
 
-# Fire up our Spring Boot Native app by default
-CMD [ "sh", "-c", "./spring-boot-graal -Dserver.port=$PORT" ]
+CMD [ "sh", "-c", "./EurekaServer" ]
