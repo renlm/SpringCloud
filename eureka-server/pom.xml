@@ -77,6 +77,10 @@
 							<buildArgs>
 								<buildArg>--no-fallback</buildArg>
 								<buildArg>--verbose</buildArg>
+								<buildArg>-H:+TraceClassInitialization</buildArg>
+								<buildArg>-H:+ReportExceptionStackTraces</buildArg>
+								<buildArg>-Dspring.graal.remove-unused-autoconfig=true</buildArg>
+								<buildArg>-Dspring.graal.remove-yaml-support=true</buildArg>
 							</buildArgs>
 						</configuration>
 						<executions>
