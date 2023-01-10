@@ -90,12 +90,12 @@
 						</configuration>
 						<executions>
 							<execution>
-			                    <id>build-native</id>
-			                    <goals>
-			                        <goal>compile-no-fork</goal>
-			                    </goals>
-			                    <phase>package</phase>
-			                </execution>
+								<id>build-native</id>
+								<goals>
+									<goal>compile-no-fork</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
 							<execution>
 								<id>add-reachability-metadata</id>
 								<goals>
