@@ -66,6 +66,7 @@
 			    <artifactId>native-maven-plugin</artifactId>
 			    <version>${native-maven-plugin.version}</version>
 			    <configuration>
+			    	<imageName>${project.name}</imageName>
 			    	<mainClass>cn.renlm.springcloud.EurekaServerApplication</mainClass>
 			    	<buildArgs>
 			    		--no-fallback
