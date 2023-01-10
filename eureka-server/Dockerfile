@@ -6,7 +6,7 @@ WORKDIR /build/eureka-server
 # 开启BuildKit，缓存maven仓库
 # https://docs.docker.com/build/buildkit/#getting-started
 RUN --mount=type=cache,target=/root/.m2 \
-	source "$HOME/.sdkman/bin/sdkman-init.sh" && mvn clean package -P prod
+	source "$HOME/.sdkman/bin/sdkman-init.sh" && mvn clean package -P prod spring-boot:build-image
 
 FROM oraclelinux:7-slim
 
