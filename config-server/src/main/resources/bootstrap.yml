@@ -19,8 +19,6 @@ logging:
       maxFileSize: 512MB
       maxHistory: 30
 management:
-  server:
-    port: 9000
   endpoints:
     web:
       exposure:
