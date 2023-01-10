@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
-	
+
 	<parent>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-parent</artifactId>
-	    <version>3.0.1</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.0.0</version>
 	</parent>
 
 	<groupId>cn.renlm</groupId>
@@ -23,7 +23,6 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- 版本管理 -->
 		<spring-cloud.version>2022.0.0</spring-cloud.version>
-		<native-maven-plugin.version>0.9.19</native-maven-plugin.version>
 		<mybatis-plus-boot-starter.version>3.5.3.1</mybatis-plus-boot-starter.version>
 		<dynamic-datasource-spring-boot-starter.version>3.6.1</dynamic-datasource-spring-boot-starter.version>
 		<mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
