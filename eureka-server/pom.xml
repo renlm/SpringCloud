@@ -67,6 +67,10 @@
 			    <version>${native-maven-plugin.version}</version>
 			    <configuration>
 			    	<mainClass>cn.renlm.springcloud.EurekaServerApplication</mainClass>
+			    	<buildArgs>
+			    		<buildArg>-H:+ReportExceptionStackTraces</buildArg>
+			    		<buildArg>--trace-class-initialization=org.slf4j.LoggerFactory</buildArg>
+			    	</buildArgs>
 			    </configuration>
 			</plugin>
 		</plugins>
