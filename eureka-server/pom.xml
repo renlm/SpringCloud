@@ -12,6 +12,15 @@
 	<artifactId>eureka-server</artifactId>
 	<name>EurekaServer</name>
 	<description>注册中心</description>
+	
+	<properties>
+		<spring-native.version>0.12.1</spring-native.version>
+		<native-buildtools.version>0.9.19</native-buildtools.version>
+		<!-- Customize Spring Boot classifier, useful in order to avoid a clash between Spring Boot repackaging and native-image-maven-plugin -->
+		<repackage.classifier/>
+		<!-- `tiny` builder allows small footprint and reduced surface attack, you can also use `base` (the default) or `full` builders to have more tooling available in the image for an improved developer experience -->
+		<builder>paketobuildpacks/builder:tiny</builder>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -54,7 +63,55 @@
 			<id>prod</id>
 			<properties>
 				<profiles.active>properties/prod</profiles.active>
+				<repackage.classifier>exec</repackage.classifier>
 			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.graalvm.buildtools</groupId>
+					<artifactId>junit-platform-native</artifactId>
+					<version>${native-buildtools.version}</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<version>${native-buildtools.version}</version>
+						<configuration>
+							<buildArgs>
+								--no-fallback
+								--initialize-at-build-time=org.springframework.util.unit.DataSize
+								--initialize-at-build-time=org.slf4j.MDC
+								--initialize-at-build-time=ch.qos.logback.classic.Level
+								--initialize-at-build-time=ch.qos.logback.classic.Logger
+								--initialize-at-build-time=ch.qos.logback.core.util.StatusPrinter
+								--initialize-at-build-time=ch.qos.logback.core.status.StatusBase
+								--initialize-at-build-time=ch.qos.logback.core.status.InfoStatus
+								--initialize-at-build-time=ch.qos.logback.core.spi.AppenderAttachableImpl
+								--initialize-at-build-time=org.slf4j.LoggerFactory
+								--initialize-at-build-time=ch.qos.logback.core.util.Loader
+								--initialize-at-build-time=org.slf4j.impl.StaticLoggerBinder
+								--initialize-at-build-time=ch.qos.logback.classic.spi.ThrowableProxy
+								--initialize-at-build-time=ch.qos.logback.core.CoreConstants
+								--report-unsupported-elements-at-runtime
+								--allow-incomplete-classpath
+								-H:+ReportExceptionStackTraces
+							</buildArgs>
+						</configuration>
+						<executions>
+							<execution>
+								<id>build-native</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 	</profiles>
 
@@ -62,32 +119,34 @@
 		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
-			    <groupId>org.graalvm.buildtools</groupId>
-			    <artifactId>native-maven-plugin</artifactId>
-			    <version>${native-maven-plugin.version}</version>
-			    <configuration>
-			    	<imageName>${project.name}</imageName>
-			    	<mainClass>cn.renlm.springcloud.EurekaServerApplication</mainClass>
-			    	<buildArgs>
-			    		--no-fallback
-						--initialize-at-build-time=org.springframework.util.unit.DataSize
-						--initialize-at-build-time=org.slf4j.MDC
-						--initialize-at-build-time=ch.qos.logback.classic.Level
-						--initialize-at-build-time=ch.qos.logback.classic.Logger
-						--initialize-at-build-time=ch.qos.logback.core.util.StatusPrinter
-						--initialize-at-build-time=ch.qos.logback.core.status.StatusBase
-						--initialize-at-build-time=ch.qos.logback.core.status.InfoStatus
-						--initialize-at-build-time=ch.qos.logback.core.spi.AppenderAttachableImpl
-						--initialize-at-build-time=org.slf4j.LoggerFactory
-						--initialize-at-build-time=ch.qos.logback.core.util.Loader
-						--initialize-at-build-time=org.slf4j.impl.StaticLoggerBinder
-						--initialize-at-build-time=ch.qos.logback.classic.spi.ThrowableProxy
-						--initialize-at-build-time=ch.qos.logback.core.CoreConstants
-						--report-unsupported-elements-at-runtime
-						--allow-incomplete-classpath
-						-H:+ReportExceptionStackTraces
-			    	</buildArgs>
-			    </configuration>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+				<configuration>
+					<classifier>${repackage.classifier}</classifier>
+					<image>
+						<builder>${builder}</builder>
+						<env>
+							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
+						</env>
+					</image>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.experimental</groupId>
+				<artifactId>spring-aot-maven-plugin</artifactId>
+				<version>${spring-native.version}</version>
+				<configuration>
+					<removeSpelSupport>true</removeSpelSupport>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		<resources>
