@@ -3,18 +3,18 @@
 # https://github.com/graalvm/container/pkgs/container/graalvm-ce
 FROM ghcr.io/graalvm/graalvm-ce:ol7-java17-22.3.0-b2
     
-ENV SDKMAN_INIT_SH "$HOME/.sdkman/bin/sdkman-init.sh"
+ENV SDKMAN_INIT_SH ".sdkman/bin/sdkman-init.sh"
 
 RUN \
     # For SDKMAN to work we need
     yum install -y unzip zip; \
     # Install SDKMAN
     curl -s "https://get.sdkman.io" | bash; \
-    source ${SDKMAN_INIT_SH}; \
+    source "$HOME/$SDKMAN_INIT_SH"; \
     sdk install maven; \
     # Install GraalVM Native Image
     gu install native-image;
 
-RUN source ${SDKMAN_INIT_SH} && mvn --version
+RUN source "$HOME/$SDKMAN_INIT_SH" && mvn --version
 
 RUN native-image --version
