@@ -9,7 +9,7 @@ ENV ACTIVE_PROFILES_SPRING ${SPRING_PROFILES_ACTIVE}
 # 开启BuildKit，缓存maven仓库
 # https://docs.docker.com/build/buildkit/#getting-started
 RUN --mount=type=cache,target=/root/.m2 \
-    source "$HOME/$SDKMAN_INIT_SH" && mvn clean package -P native ${SPRING_PROFILES_ACTIVE}
+    source "$HOME/$SDKMAN_INIT_SH" && mvn clean package -P native,${SPRING_PROFILES_ACTIVE}
 
 FROM oraclelinux:7-slim
 
