@@ -6,7 +6,7 @@ WORKDIR /build/eureka-server
 # 开启BuildKit，缓存maven仓库
 # https://docs.docker.com/build/buildkit/#getting-started
 RUN --mount=type=cache,target=/root/.m2 \
-	source "$HOME/.sdkman/bin/sdkman-init.sh" && mvn clean package -P prod native:compile
+    source SDKMAN_INIT_SH && mvn -Pnative native:compile
 
 FROM oraclelinux:7-slim
 
