@@ -35,7 +35,5 @@ eureka:
   client:
     registerWithEureka: ${REGISTER_WITH_EUREKA:true}
     fetchRegistry: ${FETCH_REGISTRY:true}
-    webclient:
-      enabled: true
     serviceUrl:
       defaultZone: ${EUREKA_SERVER}

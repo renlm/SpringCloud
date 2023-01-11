@@ -34,6 +34,6 @@ eureka:
     registerWithEureka: true
     fetchRegistry: false
     webclient:
-      enabled: true
+      enabled: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
