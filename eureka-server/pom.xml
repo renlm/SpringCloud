@@ -77,6 +77,7 @@
 						<buildArg>--trace-class-initialization=org.springframework.util.ClassUtils</buildArg>
 						<buildArg>--trace-class-initialization=org.springframework.util.xml.StaxUtils</buildArg>
 						<buildArg>--trace-class-initialization=org.springframework.util.ConcurrentReferenceHashMap</buildArg>
+						<buildArg>--trace-class-initialization=com.ctc.wstx.api.CommonConfig,com.ctc.wstx.util.DefaultXmlSymbolTable,com.ctc.wstx.api.ReaderConfig</buildArg>
 						<buildArg>--initialize-at-build-time=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 						<buildArg>--initialize-at-build-time=org.springframework.util.ClassUtils</buildArg>
 						<buildArg>--initialize-at-build-time=org.springframework.util.xml.StaxUtils</buildArg>
