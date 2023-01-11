@@ -19,7 +19,8 @@ pipeline {
                 	echo "构建镜像..."
                 	dir("${WORKSPACE}") {
 	                	docker.withRegistry("${dockerRegistry}", "${aliyuncsCredential}") {
-	                        docker.build("${dockerImage}:${TAG}", "-f eureka-server/Dockerfile .")
+	                        def profile = params.Profile == null ? 'prod' : params.Profile
+	                        docker.build("${dockerImage}:${TAG}", "--build-arg SPRING_PROFILES_ACTIVE=${profile} -f eureka-server/Dockerfile .")
 	                    }
                     }
                 }
