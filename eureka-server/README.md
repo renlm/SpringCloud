@@ -1,6 +1,6 @@
 ## 注册中心
 ## 生成 Native Image 反射配置
-	上传eureka-server-0.0.1.jar到Docker所在服务器
+	上传eureka-server-0.0.1.jar
 	$ mkdir native-image
 	
 ```
@@ -9,7 +9,8 @@ $ docker run -it --rm -v /root/native-image:/app registry.cn-hangzhou.aliyuncs.c
 bash-4.2# java -agentlib:native-image-agent=config-merge-dir=./ -jar eureka-server-0.0.1.jar
 ```
 
-	将生成配置拷贝到项目src/main/resources/META-INF/native-image目录下
+	拷贝到resources/META-INF/native-image
+	自动加载
 
 ```	
 .
