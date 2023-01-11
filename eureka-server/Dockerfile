@@ -17,6 +17,6 @@ FROM oraclelinux:7-slim
 
 MAINTAINER RenLiMing
 
-COPY --from=0 "/build/eureka-server/target/EurekaServer" EurekaServer
+COPY --from=0 "/build/eureka-server/target/eureka-server" EurekaServer
 
 CMD [ "sh", "-c", "./EurekaServer" ]
