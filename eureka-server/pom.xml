@@ -59,11 +59,13 @@
 	</profiles>
 
 	<build>
-		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.graalvm.buildtools</groupId>
 				<artifactId>native-maven-plugin</artifactId>
+				<configuration>
+					<imageName>${project.name}</imageName>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
