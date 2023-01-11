@@ -72,9 +72,10 @@
 						<buildArg>--enable-http</buildArg>
 						<buildArg>--enable-https</buildArg>
 						<buildArg>-H:+ReportExceptionStackTraces</buildArg>
-						<buildArg>-H:IncludeResources=eureka/.*properties$</buildArg>
-						<buildArg>-H:IncludeResources=templates.eureka/.*ftlh$</buildArg>
+						<buildArg>-H:JNIConfigurationFiles=${project.build.outputDirectory}/META-INF/native-image/jni-config.json</buildArg>
+						<buildArg>-H:DynamicProxyConfigurationFiles=${project.build.outputDirectory}/META-INF/native-image/proxy-config.json</buildArg>
 						<buildArg>-H:ReflectionConfigurationFiles=${project.build.outputDirectory}/META-INF/native-image/reflect-config.json</buildArg>
+						<buildArg>-H:ResourceConfigurationFiles=${project.build.outputDirectory}/META-INF/native-image/resource-config.json</buildArg>
 						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
 						<buildArg>--trace-class-initialization=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 						<buildArg>--trace-class-initialization=org.springframework.util.ClassUtils</buildArg>
