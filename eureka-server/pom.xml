@@ -72,7 +72,8 @@
 						<buildArg>--enable-http</buildArg>
 						<buildArg>--enable-https</buildArg>
 						<buildArg>-H:+ReportExceptionStackTraces</buildArg>
-						<buildArg>-H:IncludeResources=eureka/*.properties|templates.eureka/*.ftlh</buildArg>
+						<buildArg>-H:IncludeResources=eureka/.*properties$</buildArg>
+						<buildArg>-H:IncludeResources=templates.eureka/.*ftlh$</buildArg>
 						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
 						<buildArg>--trace-class-initialization=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 						<buildArg>--trace-class-initialization=org.springframework.util.ClassUtils</buildArg>
