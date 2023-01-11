@@ -10,11 +10,11 @@ RUN \
     yum install -y unzip zip; \
     # Install SDKMAN
     curl -s "https://get.sdkman.io" | bash; \
-    source "$HOME/.sdkman/bin/sdkman-init.sh"; \
+    source ${SDKMAN_INIT_SH}; \
     sdk install maven; \
     # Install GraalVM Native Image
     gu install native-image;
 
-RUN source SDKMAN_INIT_SH && mvn --version
+RUN source ${SDKMAN_INIT_SH} && mvn --version
 
 RUN native-image --version
