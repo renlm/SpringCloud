@@ -76,6 +76,8 @@
 						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
 						<buildArg>--initialize-at-build-time=org.springframework.http.codec.xml.XmlEventDecoder</buildArg>
 						<buildArg>--trace-class-initialization=com.ctc.wstx.stax.WstxInputFactory</buildArg>
+						<buildArg>--trace-class-initialization=org.springframework.util.ClassUtils</buildArg>
+						<buildArg>--trace-class-initialization=org.springframework.util.ConcurrentReferenceHashMap</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
