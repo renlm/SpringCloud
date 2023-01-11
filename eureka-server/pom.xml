@@ -60,33 +60,18 @@
 					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
-						<configuration>
-							<image>
-								<builder>paketobuildpacks/builder:tiny</builder>
-								<env>
-									<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-								</env>
-							</image>
-						</configuration>
-						<executions>
-							<execution>
-								<id>process-aot</id>
-								<goals>
-									<goal>process-aot</goal>
-								</goals>
-							</execution>
-						</executions>
 					</plugin>
 					<plugin>
 						<groupId>org.graalvm.buildtools</groupId>
 						<artifactId>native-maven-plugin</artifactId>
 						<configuration>
 							<imageName>${project.name}</imageName>
-							<classesDirectory>${project.build.outputDirectory}</classesDirectory>
-							<metadataRepository>
-								<enabled>true</enabled>
-							</metadataRepository>
-							<requiredVersion>22.3</requiredVersion>
+							<skipNativeTests>true</skipNativeTests>
+							<buildArgs>
+								<buildArg>--no-fallback</buildArg>
+								<buildArg>--report-unsupported-elements-at-runtime</buildArg>
+								<buildArg>-H:+ReportExceptionStackTraces</buildArg>
+							</buildArgs>
 						</configuration>
 						<executions>
 							<execution>
@@ -95,12 +80,6 @@
 									<goal>compile-no-fork</goal>
 								</goals>
 								<phase>package</phase>
-							</execution>
-							<execution>
-								<id>add-reachability-metadata</id>
-								<goals>
-									<goal>add-reachability-metadata</goal>
-								</goals>
 							</execution>
 						</executions>
 					</plugin>
