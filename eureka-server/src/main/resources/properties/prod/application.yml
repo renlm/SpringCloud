@@ -1,11 +1,29 @@
 server:
   port: 80
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    active: prod
 management:
   server:
     port: 9000
-spring:
-  profiles:
-    active: prod
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+logging:
+  level:
+    root: INFO
+  file:
+    name: /opt/log/eurekaServer.log
+  logback:
+    rollingpolicy:
+      maxFileSize: 512MB
+      maxHistory: 30
 eureka:
   datacenter: cloud
   environment: product

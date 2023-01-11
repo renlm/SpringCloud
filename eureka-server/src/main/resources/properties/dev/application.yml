@@ -1,8 +1,27 @@
 server:
   port: 7001
 spring:
+  application:
+    name: eureka-server
   profiles:
     active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+logging:
+  level:
+    root: INFO
+  file:
+    name: /opt/log/eurekaServer.log
+  logback:
+    rollingpolicy:
+      maxFileSize: 512MB
+      maxHistory: 30
 eureka:
   datacenter: default
   environment: dev
