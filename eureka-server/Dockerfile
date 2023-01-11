@@ -6,7 +6,7 @@ WORKDIR /build/eureka-server
 ARG SPRING_PROFILES_ACTIVE
 ENV ACTIVE_PROFILES_SPRING ${SPRING_PROFILES_ACTIVE}
 
-# 开启BuildKit，缓存maven仓库
+# 开启BuildKit，缓存Maven仓库
 # https://docs.docker.com/build/buildkit/#getting-started
 RUN --mount=type=cache,target=/root/.m2 \
     source "$HOME/$SDKMAN_INIT_SH" && mvn clean -Pnative -P ${SPRING_PROFILES_ACTIVE} native:compile
