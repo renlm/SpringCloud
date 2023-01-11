@@ -70,9 +70,8 @@
 				<configuration>
 					<!-- https://docs.oracle.com/en/graalvm/enterprise/20/docs/reference-manual/native-image/Options/ -->
 					<buildArgs>
-						<buildArg>-H:+ReportExceptionStackTraces</buildArg>
 						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
-						<buildArg>--link-at-build-time</buildArg>
+						<buildArg>--enable-url-protocols=http</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
