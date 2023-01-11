@@ -11,7 +11,7 @@ ENV ACTIVE_PROFILES_SPRING ${SPRING_PROFILES_ACTIVE}
 RUN --mount=type=cache,target=/root/.m2 \
 	mv src/main/resources/properties/${SPRING_PROFILES_ACTIVE}/* src/main/resources/ \
 	&& rm -fr src/main/resources/properties \
-    && source "$HOME/$SDKMAN_INIT_SH" && mvn -Pnative native:compile
+    && source "$HOME/$SDKMAN_INIT_SH" && mvn clean -Pnative native:compile
 
 FROM oraclelinux:7-slim
 
