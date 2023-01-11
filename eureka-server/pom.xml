@@ -75,6 +75,7 @@
 						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
 						<buildArg>--trace-class-initialization=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 						<buildArg>--trace-class-initialization=org.springframework.util.ClassUtils</buildArg>
+						<buildArg>--trace-class-initialization=org.springframework.util.xml.StaxUtils</buildArg>
 						<buildArg>--trace-class-initialization=org.springframework.util.ConcurrentReferenceHashMap</buildArg>
 						<buildArg>--initialize-at-build-time=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 						<buildArg>--initialize-at-build-time=org.springframework.util.ClassUtils</buildArg>
