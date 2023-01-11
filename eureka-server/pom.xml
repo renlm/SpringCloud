@@ -73,6 +73,7 @@
 						<buildArg>--enable-http</buildArg>
 						<buildArg>--enable-https</buildArg>
 						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
+						<buildArg>--trace-class-initialization=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 					</buildArgs>
 				</configuration>
 			</plugin>
