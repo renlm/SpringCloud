@@ -52,7 +52,7 @@
 			</activation>
 		</profile>
 		<profile>
-			<id>native</id>
+			<id>prod</id>
 			<properties>
 				<profiles.active>properties/prod</profiles.active>
 			</properties>
