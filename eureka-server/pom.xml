@@ -7,7 +7,7 @@
 		<groupId>cn.renlm</groupId>
 		<artifactId>spring-cloud</artifactId>
 		<version>0.0.1</version>
-		<relativePath>../</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>eureka-server</artifactId>
