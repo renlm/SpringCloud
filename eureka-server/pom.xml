@@ -74,6 +74,7 @@
 						<buildArg>-H:+ReportExceptionStackTraces</buildArg>
 						<buildArg>-H:IncludeResources=eureka/.*properties$</buildArg>
 						<buildArg>-H:IncludeResources=templates.eureka/.*ftlh$</buildArg>
+						<buildArg>-H:ReflectionConfigurationFiles=${project.build.outputDirectory}/META-INF/native-image/reflect-config.json</buildArg>
 						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
 						<buildArg>--trace-class-initialization=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 						<buildArg>--trace-class-initialization=org.springframework.util.ClassUtils</buildArg>
