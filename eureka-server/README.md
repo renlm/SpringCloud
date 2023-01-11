@@ -6,7 +6,10 @@
 ```
 $ docker pull registry.cn-hangzhou.aliyuncs.com/rlm/graalvm-ce:ol7-java17-22.3.0-b2
 $ docker run -it --rm -v /root/native-image:/app registry.cn-hangzhou.aliyuncs.com/rlm/graalvm-ce:ol7-java17-22.3.0-b2 bash
-bash-4.2# java -agentlib:native-image-agent=config-merge-dir=./ -jar eureka-server-0.0.1.jar
+bash-4.2# nohup java -agentlib:native-image-agent=config-merge-dir=./ -jar eureka-server-0.0.1.jar > log.file 2>&1 &
+bash-4.2# curl http://localhost:7001
+bash-4.2# curl http://localhost:7001/eureka/apps
+bash-4.2# curl http://localhost:7001/actuator/prometheus
 ```
 
 	拷贝到resources/META-INF/native-image

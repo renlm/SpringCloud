@@ -114,6 +114,9 @@
   "name":"[Lorg.springframework.util.ConcurrentReferenceHashMap$Segment;"
 },
 {
+  "name":"[Lorg.springframework.web.bind.annotation.RequestMethod;"
+},
+{
   "name":"[S"
 },
 {
@@ -593,9 +596,6 @@
   ]
 },
 {
-  "name":"com.netflix.discovery.DiscoveryClient$HeartbeatThread"
-},
-{
   "name":"com.netflix.discovery.EurekaClient",
   "queryAllDeclaredMethods":true,
   "queryAllPublicMethods":true
@@ -604,12 +604,6 @@
   "name":"com.netflix.discovery.EurekaClientConfig",
   "queryAllPublicMethods":true,
   "methods":[{"name":"shouldEnforceFetchRegistryAtInit","parameterTypes":[] }]
-},
-{
-  "name":"com.netflix.discovery.InstanceInfoReplicator"
-},
-{
-  "name":"com.netflix.discovery.InstanceInfoReplicator$1"
 },
 {
   "name":"com.netflix.discovery.TimedSupervisorTask",
@@ -675,13 +669,10 @@
   "queryAllDeclaredMethods":true
 },
 {
-  "name":"com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1"
-},
-{
   "name":"com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2"
 },
 {
-  "name":"com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3"
+  "name":"com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient"
 },
 {
   "name":"com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient",
@@ -1940,6 +1931,9 @@
   "name":"io.netty.buffer.PooledByteBufAllocator"
 },
 {
+  "name":"io.netty.channel.AbstractChannel$AbstractUnsafe"
+},
+{
   "name":"io.netty.channel.ChannelHandlerAdapter",
   "methods":[{"name":"exceptionCaught","parameterTypes":["io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }]
 },
@@ -2103,6 +2097,9 @@
 {
   "name":"io.netty.util.ReferenceCountUtil",
   "queryAllDeclaredMethods":true
+},
+{
+  "name":"io.netty.util.concurrent.SingleThreadEventExecutor"
 },
 {
   "name":"io.netty.util.internal.NativeLibraryUtil",
@@ -2395,7 +2392,7 @@
   "queryAllDeclaredMethods":true,
   "queryAllPublicMethods":true,
   "methods":[
-    {"name":"register","parameterTypes":["java.lang.Class","java.util.Map"] }, 
+    {"name":"register","parameterTypes":["java.lang.Class","int"] }, 
     {"name":"register","parameterTypes":["java.lang.Class","java.lang.Class[]"] }, 
     {"name":"register","parameterTypes":["java.lang.Object"] }, 
     {"name":"register","parameterTypes":["java.lang.Object","int"] }, 
@@ -3525,26 +3522,11 @@
   "name":"java.util.concurrent.Executor"
 },
 {
-  "name":"java.util.concurrent.Executors$RunnableAdapter"
-},
-{
   "name":"java.util.concurrent.Flow$Subscriber"
-},
-{
-  "name":"java.util.concurrent.FutureTask"
-},
-{
-  "name":"java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask"
 },
 {
   "name":"java.util.concurrent.ThreadFactory",
   "queryAllPublicMethods":true
-},
-{
-  "name":"java.util.concurrent.ThreadPoolExecutor"
-},
-{
-  "name":"java.util.concurrent.ThreadPoolExecutor$Worker"
 },
 {
   "name":"java.util.logging.LogManager",
@@ -8476,6 +8458,9 @@
   "queryAllDeclaredMethods":true
 },
 {
+  "name":"org.springframework.cloud.netflix.eureka.http.WebClientEurekaHttpClient"
+},
+{
   "name":"org.springframework.cloud.netflix.eureka.http.WebClientTransportClientFactories",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true
@@ -10096,7 +10081,22 @@
   "name":"reactor.core.publisher.Flux"
 },
 {
+  "name":"reactor.core.publisher.FluxRetryWhen"
+},
+{
+  "name":"reactor.core.publisher.InternalMonoOperator"
+},
+{
   "name":"reactor.core.publisher.Mono"
+},
+{
+  "name":"reactor.core.publisher.MonoCreate"
+},
+{
+  "name":"reactor.core.publisher.MonoDeferContextual"
+},
+{
+  "name":"reactor.core.publisher.MonoRetryWhen"
 },
 {
   "name":"reactor.netty.channel.ChannelOperationsHandler",
@@ -10112,13 +10112,37 @@
   "name":"reactor.netty.http.client.HttpClient"
 },
 {
+  "name":"reactor.netty.http.client.HttpClientConnect$MonoHttpConnect"
+},
+{
   "name":"reactor.netty.http.server.HttpServer"
+},
+{
+  "name":"reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower"
+},
+{
+  "name":"reactor.netty.internal.shaded.reactor.pool.SimpleDequePool"
+},
+{
+  "name":"reactor.netty.internal.shaded.reactor.pool.SimpleDequePool$QueueBorrowerMono"
+},
+{
+  "name":"reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire"
+},
+{
+  "name":"reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator"
 },
 {
   "name":"reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer"
 },
 {
+  "name":"reactor.netty.resources.PooledConnectionProvider"
+},
+{
   "name":"reactor.netty.transport.TransportConfig$TransportChannelInitializer"
+},
+{
+  "name":"reactor.netty.transport.TransportConnector"
 },
 {
   "name":"reactor.netty5.http.client$HttpClient"
