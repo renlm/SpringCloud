@@ -79,6 +79,7 @@
 						<buildArg>--trace-class-initialization=org.springframework.util.ConcurrentReferenceHashMap</buildArg>
 						<buildArg>--initialize-at-build-time=com.ctc.wstx.stax.WstxInputFactory</buildArg>
 						<buildArg>--initialize-at-build-time=org.springframework.util.ClassUtils</buildArg>
+						<buildArg>--initialize-at-build-time=org.springframework.util.xml.StaxUtils</buildArg>
 						<buildArg>--initialize-at-build-time=org.springframework.util.ConcurrentReferenceHashMap</buildArg>
 						<buildArg>--initialize-at-build-time=org.springframework.http.codec.xml.XmlEventDecoder</buildArg>
 						<!-- https://docs.oracle.com/en/graalvm/enterprise/20/docs/reference-manual/native-image/Options/ -->
