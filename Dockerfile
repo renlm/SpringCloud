@@ -3,6 +3,9 @@
 # https://github.com/graalvm/container/pkgs/container/graalvm-ce
 FROM ghcr.io/graalvm/jdk:ol7-java17-22.0.0.2
 
+RUN native-image --version
+RUN mvn --version
+
 # For SDKMAN to work we need unzip & zip
 RUN yum install -y unzip zip
 
